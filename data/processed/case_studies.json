@@ -1,0 +1,1786 @@
+{
+ "benchmark": {
+  "n": 665,
+  "median": 50.0,
+  "mean": 49.26766917293233,
+  "hist": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   8,
+   21,
+   109,
+   31,
+   360,
+   5,
+   86,
+   9,
+   23,
+   5,
+   6,
+   2,
+   0,
+   0,
+   0
+  ]
+ },
+ "reports": {
+  "access_2025": {
+   "company": "Access Holdings Plc",
+   "sector": "Banking",
+   "year": 2025,
+   "title": "Standalone Sustainability Report 2025",
+   "file": "access_2025.pdf",
+   "scorecard": {
+    "pages": 63,
+    "sentences": 604,
+    "claims": 108,
+    "claim_density": 0.17880794701986755,
+    "median_specificity": 50.0,
+    "mean_specificity": 48.148148148148145,
+    "share_vague": 0.32407407407407407,
+    "share_any_red": 0.39814814814814814,
+    "share_quantified": 0.12037037037037036,
+    "share_verified": 0.027777777777777776,
+    "share_high_risk": 0.37037037037037035,
+    "targets": 1,
+    "targets_with_year": 1,
+    "targets_with_baseline": 0,
+    "targets_complete": 0,
+    "report_score": 48.61111111111111,
+    "report_grade": "C"
+   },
+   "signals": [
+    {
+     "signal": "Vague or generic environmental term",
+     "kind": "red",
+     "claims": 35,
+     "share": 0.32407407407407407
+    },
+    {
+     "signal": "Absolute or neutrality claim",
+     "kind": "red",
+     "claims": 0,
+     "share": 0.0
+    },
+    {
+     "signal": "Superlative or leadership claim",
+     "kind": "red",
+     "claims": 2,
+     "share": 0.018518518518518517
+    },
+    {
+     "signal": "Overgeneralisation",
+     "kind": "red",
+     "claims": 2,
+     "share": 0.018518518518518517
+    },
+    {
+     "signal": "Exaggerated impact",
+     "kind": "red",
+     "claims": 2,
+     "share": 0.018518518518518517
+    },
+    {
+     "signal": "Relies on offsets",
+     "kind": "red",
+     "claims": 1,
+     "share": 0.009259259259259259
+    },
+    {
+     "signal": "Aspirational without plan",
+     "kind": "red",
+     "claims": 4,
+     "share": 0.037037037037037035
+    },
+    {
+     "signal": "Quantified",
+     "kind": "green",
+     "claims": 13,
+     "share": 0.12037037037037036
+    },
+    {
+     "signal": "Dated (year stated)",
+     "kind": "green",
+     "claims": 5,
+     "share": 0.046296296296296294
+    },
+    {
+     "signal": "Baseline stated",
+     "kind": "green",
+     "claims": 2,
+     "share": 0.018518518518518517
+    },
+    {
+     "signal": "Scope or boundary defined",
+     "kind": "green",
+     "claims": 9,
+     "share": 0.08333333333333333
+    },
+    {
+     "signal": "Third-party verification",
+     "kind": "green",
+     "claims": 3,
+     "share": 0.027777777777777776
+    },
+    {
+     "signal": "Concrete action",
+     "kind": "green",
+     "claims": 5,
+     "share": 0.046296296296296294
+    }
+   ],
+   "spec_hist": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    32,
+    6,
+    54,
+    1,
+    2,
+    3,
+    6,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0
+   ],
+   "by_page": [
+    {
+     "page": 5,
+     "claims": 2,
+     "specificity": 44.0
+    },
+    {
+     "page": 6,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 7,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 11,
+     "claims": 7,
+     "specificity": 48.3
+    },
+    {
+     "page": 12,
+     "claims": 1,
+     "specificity": 38.0
+    },
+    {
+     "page": 14,
+     "claims": 3,
+     "specificity": 46.0
+    },
+    {
+     "page": 15,
+     "claims": 1,
+     "specificity": 42.0
+    },
+    {
+     "page": 18,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 21,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 22,
+     "claims": 4,
+     "specificity": 47.0
+    },
+    {
+     "page": 23,
+     "claims": 11,
+     "specificity": 45.5
+    },
+    {
+     "page": 24,
+     "claims": 4,
+     "specificity": 44.5
+    },
+    {
+     "page": 26,
+     "claims": 3,
+     "specificity": 42.0
+    },
+    {
+     "page": 27,
+     "claims": 4,
+     "specificity": 50.0
+    },
+    {
+     "page": 28,
+     "claims": 6,
+     "specificity": 50.0
+    },
+    {
+     "page": 29,
+     "claims": 2,
+     "specificity": 38.0
+    },
+    {
+     "page": 30,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 31,
+     "claims": 1,
+     "specificity": 38.0
+    },
+    {
+     "page": 32,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 33,
+     "claims": 5,
+     "specificity": 48.4
+    },
+    {
+     "page": 34,
+     "claims": 2,
+     "specificity": 44.0
+    },
+    {
+     "page": 35,
+     "claims": 1,
+     "specificity": 38.0
+    },
+    {
+     "page": 36,
+     "claims": 2,
+     "specificity": 43.0
+    },
+    {
+     "page": 37,
+     "claims": 3,
+     "specificity": 41.3
+    },
+    {
+     "page": 38,
+     "claims": 2,
+     "specificity": 56.0
+    },
+    {
+     "page": 39,
+     "claims": 2,
+     "specificity": 54.0
+    },
+    {
+     "page": 40,
+     "claims": 6,
+     "specificity": 44.0
+    },
+    {
+     "page": 41,
+     "claims": 3,
+     "specificity": 38.0
+    },
+    {
+     "page": 42,
+     "claims": 3,
+     "specificity": 48.0
+    },
+    {
+     "page": 44,
+     "claims": 6,
+     "specificity": 56.0
+    },
+    {
+     "page": 45,
+     "claims": 3,
+     "specificity": 46.7
+    },
+    {
+     "page": 46,
+     "claims": 4,
+     "specificity": 65.0
+    },
+    {
+     "page": 47,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 48,
+     "claims": 3,
+     "specificity": 50.0
+    },
+    {
+     "page": 55,
+     "claims": 5,
+     "specificity": 58.8
+    }
+   ],
+   "weakest": [
+    {
+     "page": 37,
+     "sentence": "We recognise that embedding sustainability into its financial strategy is essential to unlocking long-term value, strengthening resilience, and positioning the Group as a leading force in Africa's transition to a sustainable economy.",
+     "specificity": 28,
+     "gw_risk": 0.7964741663053069,
+     "red_flags": [
+      "vague_term",
+      "superlative"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 36,
+     "sentence": "Sustainable Development Scenario (SDS) - Shock Explores the energy outlook under significantly stricter climate policies, holding temperature rise to just above 1.5°C by 2100, consistent with the Paris Agreement.",
+     "specificity": 36,
+     "gw_risk": 0.7683636759917796,
+     "red_flags": [
+      "vague_term",
+      "exaggerated_impact"
+     ],
+     "evidence": [
+      "time_bound"
+     ]
+    },
+    {
+     "page": 34,
+     "sentence": "Opportunity Time Horizon Current Effect on Access Holdings Anticipated Effect on Access Holdings2024 2025 Bank opportunities Sustainable Investments 29% energy savings through high performance glass, insulated walls, and energyefficient cooling systems 25% water savings with lowflow fixtures and aerators 99% reduction in embodied carbon in materials, drastically lowering the environmental footprint.",
+     "specificity": 38,
+     "gw_risk": 0.9407429310636548,
+     "red_flags": [
+      "vague_term",
+      "exaggerated_impact"
+     ],
+     "evidence": [
+      "quantified"
+     ]
+    },
+    {
+     "page": 14,
+     "sentence": "All sustainability disclosures are aligned with the United Nations Sustainable Development Goals (SDGs).",
+     "specificity": 38,
+     "gw_risk": 0.7518612453162442,
+     "red_flags": [
+      "vague_term"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 23,
+     "sentence": "Driving green banking, climate risk disclosures, and carbon accounting.",
+     "specificity": 38,
+     "gw_risk": 0.6798288252633817,
+     "red_flags": [
+      "vague_term"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 29,
+     "sentence": "Sustainable Infrastructure & Supply Chain Environmental Economic Social Governance 5.",
+     "specificity": 38,
+     "gw_risk": 0.679799252064018,
+     "red_flags": [
+      "vague_term"
+     ],
+     "evidence": []
+    }
+   ],
+   "strongest": [
+    {
+     "page": 46,
+     "sentence": "Scope 3 emissions from business travel reduced by approximately 49%, from 3,293 tCO₂e in 2024 to 1,668 tCO₂e in 2025, supported by a budget optimisation programme prioritising essential travel and the increased adoption of digital collaboration tools.",
+     "specificity": 82,
+     "gw_risk": 0.3120712248551654,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound",
+      "scope_defined",
+      "specific_action"
+     ]
+    },
+    {
+     "page": 55,
+     "sentence": "57-58 Reported operational GHG emissions reduction from the established 2022 baseline (28.47%) 28.47% from the 2022 baseline Reasonable GHG Protocol; IFRS S2; GRI 305-5 pp.",
+     "specificity": 76,
+     "gw_risk": 0.4740237609870842,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "baseline",
+      "scope_defined"
+     ]
+    },
+    {
+     "page": 33,
+     "sentence": "Edge Certification - Full Edge certification of 2 infrastructures in Nigeria and Ghana Nigeria Access T owers, Head Office Lagos, Nigeria Certification Level: EDGE Certified 20% less energy consumption 33% water savings 99% reduction in embodied carbon in materials Ghana Access Bank Ghana Head Office.",
+     "specificity": 72,
+     "gw_risk": 0.5494693709551632,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "verification"
+     ]
+    },
+    {
+     "page": 11,
+     "sentence": "We reduced operational emissions by 28.47% from our 2022 baseline, expanded solar infrastructure across our network, grew our green asset portfolio to N92.14 billion, and deployed N72.3 billion under our Sustainable Finance Framework.",
+     "specificity": 70,
+     "gw_risk": 0.6008072027119503,
+     "red_flags": [
+      "vague_term"
+     ],
+     "evidence": [
+      "quantified",
+      "baseline",
+      "scope_defined",
+      "specific_action"
+     ]
+    },
+    {
+     "page": 55,
+     "sentence": "57-58 Energy mix and operational energy disclosure Diesel generation, national-grid electricity and solar energy; Scope 1, Scope 2 and Scope 3 represented approximately 61.7%, 34.9% and 3.4% of total reported emissions, respectively.",
+     "specificity": 68,
+     "gw_risk": 0.45866936900973165,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "scope_defined"
+     ]
+    },
+    {
+     "page": 44,
+     "sentence": "The 16% year-on-year increase in Scope 2 emissions reflects improved availability and uptake of national grid electricity supply, alongside business expansion across the Group’s operating footprint.",
+     "specificity": 68,
+     "gw_risk": 0.46216877300891834,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "scope_defined"
+     ]
+    }
+   ],
+   "targets": [
+    {
+     "page": 42,
+     "sentence": "Headline performance against the Group’s strategic targets in 2025 includes: a 28.47% reduction in operational emissions (against a 40% target by 2026); US$185.38 million in DFI capital mobilisation; sustainable loan book growth of $1.269 billion; 78,438 new MSMEs onboarded; 2.528 million low-income individuals reached; and 2,439,480 CSI beneficiaries impacted across Africa.",
+     "type": "Emissions reduction",
+     "target_year": 2026,
+     "baseline_year": null,
+     "reduction_pct": 28.47,
+     "scope": null,
+     "interim": false,
+     "completeness": 0.5
+    }
+   ]
+  },
+  "dangote_2024": {
+   "company": "Dangote Cement Plc",
+   "sector": "Cement",
+   "year": 2024,
+   "title": "Sustainability Report 2024 (Annual Report extract)",
+   "file": "dangote_2024.pdf",
+   "scorecard": {
+    "pages": 72,
+    "sentences": 960,
+    "claims": 287,
+    "claim_density": 0.2989583333333333,
+    "median_specificity": 50.0,
+    "mean_specificity": 49.08710801393728,
+    "share_vague": 0.1986062717770035,
+    "share_any_red": 0.2857142857142857,
+    "share_quantified": 0.08013937282229965,
+    "share_verified": 0.010452961672473868,
+    "share_high_risk": 0.22996515679442509,
+    "targets": 6,
+    "targets_with_year": 6,
+    "targets_with_baseline": 1,
+    "targets_complete": 1,
+    "report_score": 46.190331010452965,
+    "report_grade": "C"
+   },
+   "signals": [
+    {
+     "signal": "Vague or generic environmental term",
+     "kind": "red",
+     "claims": 57,
+     "share": 0.1986062717770035
+    },
+    {
+     "signal": "Absolute or neutrality claim",
+     "kind": "red",
+     "claims": 2,
+     "share": 0.006968641114982578
+    },
+    {
+     "signal": "Superlative or leadership claim",
+     "kind": "red",
+     "claims": 8,
+     "share": 0.027874564459930314
+    },
+    {
+     "signal": "Overgeneralisation",
+     "kind": "red",
+     "claims": 3,
+     "share": 0.010452961672473868
+    },
+    {
+     "signal": "Exaggerated impact",
+     "kind": "red",
+     "claims": 1,
+     "share": 0.003484320557491289
+    },
+    {
+     "signal": "Relies on offsets",
+     "kind": "red",
+     "claims": 7,
+     "share": 0.024390243902439025
+    },
+    {
+     "signal": "Aspirational without plan",
+     "kind": "red",
+     "claims": 10,
+     "share": 0.03484320557491289
+    },
+    {
+     "signal": "Quantified",
+     "kind": "green",
+     "claims": 23,
+     "share": 0.08013937282229965
+    },
+    {
+     "signal": "Dated (year stated)",
+     "kind": "green",
+     "claims": 39,
+     "share": 0.13588850174216027
+    },
+    {
+     "signal": "Baseline stated",
+     "kind": "green",
+     "claims": 7,
+     "share": 0.024390243902439025
+    },
+    {
+     "signal": "Scope or boundary defined",
+     "kind": "green",
+     "claims": 6,
+     "share": 0.020905923344947737
+    },
+    {
+     "signal": "Third-party verification",
+     "kind": "green",
+     "claims": 3,
+     "share": 0.010452961672473868
+    },
+    {
+     "signal": "Concrete action",
+     "kind": "green",
+     "claims": 9,
+     "share": 0.0313588850174216
+    }
+   ],
+   "spec_hist": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    5,
+    1,
+    61,
+    9,
+    167,
+    0,
+    19,
+    4,
+    11,
+    2,
+    7,
+    1,
+    0,
+    0,
+    0
+   ],
+   "by_page": [
+    {
+     "page": 2,
+     "claims": 2,
+     "specificity": 54.0
+    },
+    {
+     "page": 3,
+     "claims": 6,
+     "specificity": 47.0
+    },
+    {
+     "page": 5,
+     "claims": 1,
+     "specificity": 38.0
+    },
+    {
+     "page": 6,
+     "claims": 4,
+     "specificity": 49.0
+    },
+    {
+     "page": 7,
+     "claims": 7,
+     "specificity": 48.9
+    },
+    {
+     "page": 8,
+     "claims": 8,
+     "specificity": 43.0
+    },
+    {
+     "page": 9,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 10,
+     "claims": 4,
+     "specificity": 42.0
+    },
+    {
+     "page": 11,
+     "claims": 6,
+     "specificity": 44.0
+    },
+    {
+     "page": 13,
+     "claims": 4,
+     "specificity": 44.0
+    },
+    {
+     "page": 14,
+     "claims": 3,
+     "specificity": 49.3
+    },
+    {
+     "page": 15,
+     "claims": 1,
+     "specificity": 58.0
+    },
+    {
+     "page": 17,
+     "claims": 5,
+     "specificity": 47.6
+    },
+    {
+     "page": 20,
+     "claims": 2,
+     "specificity": 41.0
+    },
+    {
+     "page": 22,
+     "claims": 5,
+     "specificity": 45.2
+    },
+    {
+     "page": 24,
+     "claims": 7,
+     "specificity": 44.3
+    },
+    {
+     "page": 25,
+     "claims": 3,
+     "specificity": 50.0
+    },
+    {
+     "page": 26,
+     "claims": 3,
+     "specificity": 50.0
+    },
+    {
+     "page": 27,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 28,
+     "claims": 4,
+     "specificity": 44.5
+    },
+    {
+     "page": 29,
+     "claims": 2,
+     "specificity": 47.0
+    },
+    {
+     "page": 30,
+     "claims": 4,
+     "specificity": 44.5
+    },
+    {
+     "page": 32,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 33,
+     "claims": 3,
+     "specificity": 46.0
+    },
+    {
+     "page": 34,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 37,
+     "claims": 3,
+     "specificity": 49.3
+    },
+    {
+     "page": 38,
+     "claims": 6,
+     "specificity": 46.0
+    },
+    {
+     "page": 40,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 41,
+     "claims": 3,
+     "specificity": 46.0
+    },
+    {
+     "page": 42,
+     "claims": 17,
+     "specificity": 49.4
+    },
+    {
+     "page": 43,
+     "claims": 20,
+     "specificity": 53.9
+    },
+    {
+     "page": 44,
+     "claims": 13,
+     "specificity": 50.5
+    },
+    {
+     "page": 45,
+     "claims": 14,
+     "specificity": 51.7
+    },
+    {
+     "page": 46,
+     "claims": 12,
+     "specificity": 46.6
+    },
+    {
+     "page": 47,
+     "claims": 12,
+     "specificity": 43.0
+    },
+    {
+     "page": 48,
+     "claims": 16,
+     "specificity": 46.2
+    },
+    {
+     "page": 49,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 50,
+     "claims": 11,
+     "specificity": 53.3
+    },
+    {
+     "page": 51,
+     "claims": 15,
+     "specificity": 57.5
+    },
+    {
+     "page": 53,
+     "claims": 7,
+     "specificity": 51.1
+    },
+    {
+     "page": 54,
+     "claims": 5,
+     "specificity": 50.0
+    },
+    {
+     "page": 56,
+     "claims": 2,
+     "specificity": 61.0
+    },
+    {
+     "page": 57,
+     "claims": 3,
+     "specificity": 50.0
+    },
+    {
+     "page": 58,
+     "claims": 4,
+     "specificity": 63.0
+    },
+    {
+     "page": 61,
+     "claims": 3,
+     "specificity": 51.3
+    },
+    {
+     "page": 62,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 63,
+     "claims": 2,
+     "specificity": 46.0
+    },
+    {
+     "page": 65,
+     "claims": 9,
+     "specificity": 45.4
+    },
+    {
+     "page": 66,
+     "claims": 10,
+     "specificity": 52.0
+    },
+    {
+     "page": 69,
+     "claims": 4,
+     "specificity": 47.5
+    }
+   ],
+   "weakest": [
+    {
+     "page": 43,
+     "sentence": "As part of our efforts, DCP executed several tree planting projects in schools to enhance climate awareness and tree planting consciousness amongst the next generation of African leaders.",
+     "specificity": 26,
+     "gw_risk": 0.34957121886038955,
+     "red_flags": [
+      "vague_term",
+      "offset_reliance"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 46,
+     "sentence": "As we continue to leverage collaboration, DCP remains committed to shaping a more sustainable, low-carbon future, reinforcing our role as a responsible corporate leader in global climate efforts.",
+     "specificity": 28,
+     "gw_risk": 0.7817037744534292,
+     "red_flags": [
+      "vague_term",
+      "superlative"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 24,
+     "sentence": "Looking ahead: plans for the coming years (FY 2025 and beyond) for your department We aim to further streamline processes, adopt advanced data analytics for improved decision-making, and integrate sustainable practices that align with both financial and environmental goals.",
+     "specificity": 30,
+     "gw_risk": 0.4957543524742086,
+     "red_flags": [
+      "vague_term",
+      "aspirational"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 8,
+     "sentence": "Across our value chain, we aim to foster sustainable business practices, highlighting our commitment to environmental stewardship, social responsibility, and ethical governance at every stage of our operations.",
+     "specificity": 30,
+     "gw_risk": 0.4100761971596313,
+     "red_flags": [
+      "vague_term",
+      "aspirational"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 65,
+     "sentence": "By working together, we aim to build a resilient and sustainable future, guided by our shared commitment to excellence, innovation, and responsibility.",
+     "specificity": 30,
+     "gw_risk": 0.35049805879806095,
+     "red_flags": [
+      "vague_term",
+      "aspirational"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 46,
+     "sentence": "This initiative helped us reinforce our commitment to achieving net-zero emissions and driving sustainability across the cement sector.",
+     "specificity": 35,
+     "gw_risk": 0.5859411856487426,
+     "red_flags": [
+      "absolute_claim"
+     ],
+     "evidence": []
+    }
+   ],
+   "strongest": [
+    {
+     "page": 43,
+     "sentence": "Net Scope 1 CO2 intensity reduced by 1.2% from 577 kgCO₂/ tonne cementitious material in 2023 to 570 kgCO₂/tonne cementitious material in 2024.",
+     "specificity": 82,
+     "gw_risk": 0.30311952084756394,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound",
+      "scope_defined",
+      "specific_action"
+     ]
+    },
+    {
+     "page": 51,
+     "sentence": "CONSUMPTION & USE MANUFACTURING RECYCLING Based on improved waste segregation and recycling practices, and subject to regulatory compliances, there was a 36% increase in waste diverted from disposal in 2024 compared to 2023.",
+     "specificity": 76,
+     "gw_risk": 0.1146149352069634,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound",
+      "baseline"
+     ]
+    },
+    {
+     "page": 43,
+     "sentence": "In 2024, we recorded 19,057 tonnes for our annual average NOx emissions (a 57% increase from 2023).",
+     "specificity": 76,
+     "gw_risk": 0.15577364011602385,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound",
+      "baseline"
+     ]
+    },
+    {
+     "page": 58,
+     "sentence": "By proactively addressing community concerns through structured health initiatives, stakeholder engagement, and impact assessments, there has been a 29% reduction in social incidents and disruptions compared to 2023.",
+     "specificity": 76,
+     "gw_risk": 0.17690049569396957,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound",
+      "baseline"
+     ]
+    },
+    {
+     "page": 58,
+     "sentence": "Social Performance recorded 49% reduction in community grievances in 2024 compared to 2023.",
+     "specificity": 76,
+     "gw_risk": 0.19707104961198,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound",
+      "baseline"
+     ]
+    },
+    {
+     "page": 43,
+     "sentence": "Our Scope 1 and 2 CO₂ intensity improved from 658 kgCO₂ per tonne of cementitious material in 2023 to 649 kgCO₂ per tonne cementitious material in 2024, 1.37% reduction.",
+     "specificity": 76,
+     "gw_risk": 0.267565777213889,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound",
+      "scope_defined"
+     ]
+    }
+   ],
+   "targets": [
+    {
+     "page": 44,
+     "sentence": "At Dangote Cement, we are proud to share our commitment to reducing our carbon emissions by 20% by the year 2030.",
+     "type": "Emissions reduction",
+     "target_year": 2030,
+     "baseline_year": null,
+     "reduction_pct": 20.0,
+     "scope": null,
+     "interim": false,
+     "completeness": 0.5
+    },
+    {
+     "page": 44,
+     "sentence": "Dangote Cement’s target is to reduce the Scope 1 &2 GHG intensity from a 2021 base year emissions of 691 kgCO₂ per tonne cementitious material to 563 kgCO₂/tonne by 2030.",
+     "type": "Emissions reduction",
+     "target_year": 2030,
+     "baseline_year": 2021,
+     "reduction_pct": null,
+     "scope": "Scope 1 &2",
+     "interim": false,
+     "completeness": 0.75
+    },
+    {
+     "page": 44,
+     "sentence": "While we continue our efforts towards carbon offsets to compensate for emissions that cannot be avoided, we work towards our ambition to be Net Zero by 2060.",
+     "type": "Net zero",
+     "target_year": 2060,
+     "baseline_year": null,
+     "reduction_pct": null,
+     "scope": null,
+     "interim": false,
+     "completeness": 0.25
+    },
+    {
+     "page": 51,
+     "sentence": "Key commitments and actions in 2024 included optimising production processes to reduce waste, shifting to bulk cement deliveries to cut packaging waste, expanding recycling and reuse initiatives, and collaborating with local waste handlers and recyclers to ensure safe treatment of hazardous waste.",
+     "type": "Waste / circularity",
+     "target_year": 2024,
+     "baseline_year": null,
+     "reduction_pct": null,
+     "scope": null,
+     "interim": false,
+     "completeness": 0.25
+    },
+    {
+     "page": 65,
+     "sentence": "In 2024, we deepened our engagement with the Global Cement and Concrete Association (GCCA), actively contributing to the development of an industrywide roadmap for achieving net-zero emissions by 2050.",
+     "type": "Net zero",
+     "target_year": 2050,
+     "baseline_year": null,
+     "reduction_pct": null,
+     "scope": null,
+     "interim": false,
+     "completeness": 0.25
+    },
+    {
+     "page": 65,
+     "sentence": "A significant milestone in 2024 was the successful completion of a solar lighting project at Penja Mines in Cameroon, reinforcing our commitment to sustainable energy solutions.",
+     "type": "Renewable energy",
+     "target_year": 2024,
+     "baseline_year": null,
+     "reduction_pct": null,
+     "scope": null,
+     "interim": true,
+     "completeness": 0.25
+    }
+   ]
+  },
+  "seplat_2023": {
+   "company": "Seplat Energy Plc",
+   "sector": "Oil & gas",
+   "year": 2023,
+   "title": "Sustainability Report 2023",
+   "file": "seplat_2023.pdf",
+   "scorecard": {
+    "pages": 122,
+    "sentences": 1290,
+    "claims": 258,
+    "claim_density": 0.2,
+    "median_specificity": 50.0,
+    "mean_specificity": 47.689922480620154,
+    "share_vague": 0.1511627906976744,
+    "share_any_red": 0.27906976744186046,
+    "share_quantified": 0.03488372093023256,
+    "share_verified": 0.015503875968992248,
+    "share_high_risk": 0.313953488372093,
+    "targets": 4,
+    "targets_with_year": 4,
+    "targets_with_baseline": 0,
+    "targets_complete": 0,
+    "report_score": 42.01744186046511,
+    "report_grade": "D"
+   },
+   "signals": [
+    {
+     "signal": "Vague or generic environmental term",
+     "kind": "red",
+     "claims": 39,
+     "share": 0.1511627906976744
+    },
+    {
+     "signal": "Absolute or neutrality claim",
+     "kind": "red",
+     "claims": 4,
+     "share": 0.015503875968992248
+    },
+    {
+     "signal": "Superlative or leadership claim",
+     "kind": "red",
+     "claims": 6,
+     "share": 0.023255813953488372
+    },
+    {
+     "signal": "Overgeneralisation",
+     "kind": "red",
+     "claims": 2,
+     "share": 0.007751937984496124
+    },
+    {
+     "signal": "Exaggerated impact",
+     "kind": "red",
+     "claims": 3,
+     "share": 0.011627906976744186
+    },
+    {
+     "signal": "Relies on offsets",
+     "kind": "red",
+     "claims": 8,
+     "share": 0.031007751937984496
+    },
+    {
+     "signal": "Aspirational without plan",
+     "kind": "red",
+     "claims": 24,
+     "share": 0.09302325581395349
+    },
+    {
+     "signal": "Quantified",
+     "kind": "green",
+     "claims": 9,
+     "share": 0.03488372093023256
+    },
+    {
+     "signal": "Dated (year stated)",
+     "kind": "green",
+     "claims": 15,
+     "share": 0.05813953488372093
+    },
+    {
+     "signal": "Baseline stated",
+     "kind": "green",
+     "claims": 2,
+     "share": 0.007751937984496124
+    },
+    {
+     "signal": "Scope or boundary defined",
+     "kind": "green",
+     "claims": 1,
+     "share": 0.003875968992248062
+    },
+    {
+     "signal": "Third-party verification",
+     "kind": "green",
+     "claims": 4,
+     "share": 0.015503875968992248
+    },
+    {
+     "signal": "Concrete action",
+     "kind": "green",
+     "claims": 8,
+     "share": 0.031007751937984496
+    }
+   ],
+   "spec_hist": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    7,
+    3,
+    41,
+    14,
+    170,
+    1,
+    13,
+    2,
+    6,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "by_page": [
+    {
+     "page": 2,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 4,
+     "claims": 2,
+     "specificity": 59.0
+    },
+    {
+     "page": 5,
+     "claims": 2,
+     "specificity": 41.0
+    },
+    {
+     "page": 6,
+     "claims": 1,
+     "specificity": 38.0
+    },
+    {
+     "page": 7,
+     "claims": 10,
+     "specificity": 43.8
+    },
+    {
+     "page": 10,
+     "claims": 2,
+     "specificity": 40.0
+    },
+    {
+     "page": 11,
+     "claims": 12,
+     "specificity": 44.0
+    },
+    {
+     "page": 12,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 13,
+     "claims": 15,
+     "specificity": 47.5
+    },
+    {
+     "page": 14,
+     "claims": 13,
+     "specificity": 48.0
+    },
+    {
+     "page": 16,
+     "claims": 4,
+     "specificity": 47.0
+    },
+    {
+     "page": 18,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 19,
+     "claims": 4,
+     "specificity": 54.5
+    },
+    {
+     "page": 20,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 21,
+     "claims": 11,
+     "specificity": 45.5
+    },
+    {
+     "page": 22,
+     "claims": 1,
+     "specificity": 42.0
+    },
+    {
+     "page": 23,
+     "claims": 9,
+     "specificity": 45.2
+    },
+    {
+     "page": 24,
+     "claims": 2,
+     "specificity": 35.0
+    },
+    {
+     "page": 25,
+     "claims": 4,
+     "specificity": 47.0
+    },
+    {
+     "page": 26,
+     "claims": 1,
+     "specificity": 30.0
+    },
+    {
+     "page": 27,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 28,
+     "claims": 2,
+     "specificity": 46.0
+    },
+    {
+     "page": 29,
+     "claims": 15,
+     "specificity": 48.8
+    },
+    {
+     "page": 30,
+     "claims": 1,
+     "specificity": 38.0
+    },
+    {
+     "page": 32,
+     "claims": 12,
+     "specificity": 44.0
+    },
+    {
+     "page": 33,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 35,
+     "claims": 12,
+     "specificity": 47.5
+    },
+    {
+     "page": 37,
+     "claims": 9,
+     "specificity": 51.8
+    },
+    {
+     "page": 39,
+     "claims": 11,
+     "specificity": 46.4
+    },
+    {
+     "page": 40,
+     "claims": 1,
+     "specificity": 56.0
+    },
+    {
+     "page": 41,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 43,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 44,
+     "claims": 3,
+     "specificity": 50.0
+    },
+    {
+     "page": 45,
+     "claims": 2,
+     "specificity": 40.0
+    },
+    {
+     "page": 46,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 47,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 48,
+     "claims": 4,
+     "specificity": 47.0
+    },
+    {
+     "page": 49,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 51,
+     "claims": 3,
+     "specificity": 54.0
+    },
+    {
+     "page": 52,
+     "claims": 1,
+     "specificity": 38.0
+    },
+    {
+     "page": 56,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 57,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 58,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 59,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 60,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 61,
+     "claims": 3,
+     "specificity": 50.0
+    },
+    {
+     "page": 63,
+     "claims": 3,
+     "specificity": 50.0
+    },
+    {
+     "page": 64,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 65,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 66,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 69,
+     "claims": 2,
+     "specificity": 44.0
+    },
+    {
+     "page": 75,
+     "claims": 1,
+     "specificity": 56.0
+    },
+    {
+     "page": 76,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 77,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 81,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 84,
+     "claims": 5,
+     "specificity": 49.4
+    },
+    {
+     "page": 85,
+     "claims": 1,
+     "specificity": 68.0
+    },
+    {
+     "page": 86,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 87,
+     "claims": 2,
+     "specificity": 58.0
+    },
+    {
+     "page": 88,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 89,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 90,
+     "claims": 8,
+     "specificity": 43.2
+    },
+    {
+     "page": 91,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 92,
+     "claims": 3,
+     "specificity": 50.0
+    },
+    {
+     "page": 93,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 95,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 97,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 100,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 101,
+     "claims": 2,
+     "specificity": 54.0
+    },
+    {
+     "page": 102,
+     "claims": 3,
+     "specificity": 50.0
+    },
+    {
+     "page": 103,
+     "claims": 1,
+     "specificity": 60.0
+    },
+    {
+     "page": 104,
+     "claims": 2,
+     "specificity": 50.0
+    },
+    {
+     "page": 105,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 108,
+     "claims": 1,
+     "specificity": 50.0
+    },
+    {
+     "page": 110,
+     "claims": 4,
+     "specificity": 50.0
+    },
+    {
+     "page": 111,
+     "claims": 5,
+     "specificity": 50.0
+    },
+    {
+     "page": 112,
+     "claims": 5,
+     "specificity": 48.4
+    },
+    {
+     "page": 113,
+     "claims": 2,
+     "specificity": 50.0
+    }
+   ],
+   "weakest": [
+    {
+     "page": 11,
+     "sentence": "Our journey towards sustainability is grounded in a clear and compelling vision: to be a leading energy company in providing sustainable energy solutions while minimizing our environmental footprint.",
+     "specificity": 20,
+     "gw_risk": 0.8754484717146298,
+     "red_flags": [
+      "vague_term",
+      "superlative",
+      "aspirational"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 13,
+     "sentence": "As the leading producer of natural gas, Seplat is at the forefront of developing a sustainable energy future for Nigeria, with the capability to support industrial-scale energy requirements and initiatives.",
+     "specificity": 28,
+     "gw_risk": 0.8331539399697809,
+     "red_flags": [
+      "vague_term",
+      "superlative"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 11,
+     "sentence": "This we believe will build a sustainable future that ensures the well-being of our planet and its people.",
+     "specificity": 28,
+     "gw_risk": 0.7466573179420969,
+     "red_flags": [
+      "vague_term",
+      "overgeneralisation"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 7,
+     "sentence": "Through stringent environmental management practices and ongoing investments in sustainable technologies, we are actively working towards reducing our carbon footprint and minimizing environmental impact.",
+     "specificity": 30,
+     "gw_risk": 0.617321206725722,
+     "red_flags": [
+      "vague_term",
+      "aspirational"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 26,
+     "sentence": "We aim to create sustainable energy solutions to provide access and meet increasing energy demands, while addressing the critical challenge of climate change for society and our business.",
+     "specificity": 30,
+     "gw_risk": 0.6099171831649447,
+     "red_flags": [
+      "vague_term",
+      "aspirational"
+     ],
+     "evidence": []
+    },
+    {
+     "page": 21,
+     "sentence": "We aim to create increasingly sustainable energy solutions to provide access and meet increasing energy demand, while addressing the critical challenge of climate change for society and our business.",
+     "specificity": 30,
+     "gw_risk": 0.5889379434864869,
+     "red_flags": [
+      "vague_term",
+      "aspirational"
+     ],
+     "evidence": []
+    }
+   ],
+   "strongest": [
+    {
+     "page": 19,
+     "sentence": "Routine flare-out projects to eliminate up to 80% of emissions in 2025 Performance . $0.15 earnings per share . $98.8m dividends paid in 2023 . $69.7m paid in interest and fees to providers of capital.",
+     "specificity": 68,
+     "gw_risk": 0.14765260278238065,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound"
+     ]
+    },
+    {
+     "page": 7,
+     "sentence": "Beyond that is the need to increase energy access from less than 60% at present, so we can provide universal access to cleaner, reliable and affordable energy for more than 400 million Nigerians expected by 2050, to power their entrepreneurial spirit.",
+     "specificity": 68,
+     "gw_risk": 0.1507248477837209,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound"
+     ]
+    },
+    {
+     "page": 4,
+     "sentence": "Oil Seplat Energy’s oil portfolio contributed 59% of Group volumes in 2023 and 88% of its revenues.",
+     "specificity": 68,
+     "gw_risk": 0.18016752393139948,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound"
+     ]
+    },
+    {
+     "page": 85,
+     "sentence": "120 Undergraduates awarded scholarships through this program in 2023 0 100 200 300 400 500 600 700 800 900 1000 2023202220212020201920182017201620152014 Cumulative total number of scholarships Western and Eastern assets combined Scholarship allocation Community 30% State allocation 30% National allocation 40% Seplat Management handing over the newly renovated lab Sustainability Report 2023 Seplat Energy Plc 85 OverviewEnvironmentSocialGovernanceAppendix.",
+     "specificity": 68,
+     "gw_risk": 0.18547689293292344,
+     "red_flags": [],
+     "evidence": [
+      "quantified",
+      "time_bound"
+     ]
+    },
+    {
+     "page": 87,
+     "sentence": "In 2023, a total sum of N7.5m was raised and distributed to nine charities including the Pacelli School for the blind, Children living with Cancer Foundation, and Little Saints Orphanage. ₦30m Donated to 20 charitable organizations from 2019 to 2023 Sustainability Report 2023 Seplat Energy Plc 87 OverviewEnvironmentSocialGovernanceAppendix.",
+     "specificity": 66,
+     "gw_risk": 0.09987198409596833,
+     "red_flags": [],
+     "evidence": [
+      "time_bound",
+      "baseline"
+     ]
+    },
+    {
+     "page": 13,
+     "sentence": "From 2024, we will fully transition to exclusive equity ownership reporting methods in line with the IFRS disclosure standards Sustainability Leadership The appointment of Chioma Afe as the new Director of External Affairs and Social Performance is a significant step towards Seplat’s renewed focus on social performance and sustainability.",
+     "specificity": 66,
+     "gw_risk": 0.20893761496897506,
+     "red_flags": [],
+     "evidence": [
+      "time_bound",
+      "baseline"
+     ]
+    }
+   ],
+   "targets": [
+    {
+     "page": 32,
+     "sentence": "Commitment to net zero by 2050 Our evaluation confirms our business’s resilience across all climate change scenarios.",
+     "type": "Net zero",
+     "target_year": 2050,
+     "baseline_year": null,
+     "reduction_pct": null,
+     "scope": null,
+     "interim": false,
+     "completeness": 0.25
+    },
+    {
+     "page": 35,
+     "sentence": "Our reduction strategy is ambitious, with a clear target to eliminate routine flaring by the end of 2025.",
+     "type": "Flaring / methane",
+     "target_year": 2025,
+     "baseline_year": null,
+     "reduction_pct": null,
+     "scope": null,
+     "interim": false,
+     "completeness": 0.25
+    },
+    {
+     "page": 90,
+     "sentence": "Seplat has set a new target of carbon neutrality by 2050, demonstrating a strong commitment to energy transition.",
+     "type": "Carbon / climate neutral",
+     "target_year": 2050,
+     "baseline_year": null,
+     "reduction_pct": null,
+     "scope": null,
+     "interim": false,
+     "completeness": 0.25
+    },
+    {
+     "page": 90,
+     "sentence": "The company’s efforts towards energy transition are commendable, and its commitment to achieving carbon neutrality by 2050 is a promising step forward towards a cleaner, greener future.",
+     "type": "Carbon / climate neutral",
+     "target_year": 2050,
+     "baseline_year": null,
+     "reduction_pct": null,
+     "scope": null,
+     "interim": false,
+     "completeness": 0.25
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,118 @@
+{
+  "claim_detector": {
+    "C": 1,
+    "threshold": 0.55,
+    "test_n": 265,
+    "test_pos": 67,
+    "precision": 0.7671232876712328,
+    "recall": 0.835820895522388,
+    "f1": 0.8,
+    "roc_auc": 0.9412784562038293,
+    "avg_precision": 0.8416460487677323,
+    "macro_f1": 0.8641025641025641,
+    "accuracy_micro_f1": 0.8943396226415095,
+    "paper_test": {
+      "TF-IDF SVM": {
+        "micro_f1": 0.817,
+        "macro_f1": 0.725
+      },
+      "DistilBERT": {
+        "micro_f1": 0.847,
+        "macro_f1": 0.801
+      },
+      "ClimateBERT": {
+        "micro_f1": 0.867,
+        "macro_f1": 0.819
+      },
+      "RoBERTa-large": {
+        "micro_f1": 0.907,
+        "macro_f1": 0.868
+      }
+    },
+    "note": "Paper scores: Stammbach et al. (2023) Table 2, test split (300 sentences in the paper; the public release has 265)."
+  },
+  "greenwashing_risk": {
+    "n": 671,
+    "greenwashing_share": 0.3710879284649776,
+    "rule_score_only": {
+      "roc_auc": 0.644121509735625,
+      "avg_precision": 0.5182019461231687
+    },
+    "signals_logreg_cv": {
+      "roc_auc": 0.6676326157711414,
+      "avg_precision": 0.5580314096625067,
+      "precision": 0.5853658536585366,
+      "recall": 0.4819277108433735,
+      "f1": 0.5286343612334802
+    },
+    "signals_plus_words_logreg_cv": {
+      "roc_auc": 0.7824187746245646,
+      "avg_precision": 0.6938985179490103,
+      "precision": 0.632183908045977,
+      "recall": 0.6626506024096386,
+      "f1": 0.6470588235294118
+    },
+    "signal_prevalence": {
+      "vague_term": {
+        "not_greenwashing": 0.121,
+        "greenwashing": 0.325
+      },
+      "absolute_claim": {
+        "not_greenwashing": 0.1,
+        "greenwashing": 0.116
+      },
+      "superlative": {
+        "not_greenwashing": 0.019,
+        "greenwashing": 0.068
+      },
+      "overgeneralisation": {
+        "not_greenwashing": 0.033,
+        "greenwashing": 0.092
+      },
+      "exaggerated_impact": {
+        "not_greenwashing": 0.002,
+        "greenwashing": 0.048
+      },
+      "offset_reliance": {
+        "not_greenwashing": 0.007,
+        "greenwashing": 0.0
+      },
+      "aspirational": {
+        "not_greenwashing": 0.085,
+        "greenwashing": 0.044
+      },
+      "quantified": {
+        "not_greenwashing": 0.258,
+        "greenwashing": 0.213
+      },
+      "time_bound": {
+        "not_greenwashing": 0.261,
+        "greenwashing": 0.104
+      },
+      "baseline": {
+        "not_greenwashing": 0.014,
+        "greenwashing": 0.0
+      },
+      "scope_defined": {
+        "not_greenwashing": 0.014,
+        "greenwashing": 0.02
+      },
+      "verification": {
+        "not_greenwashing": 0.014,
+        "greenwashing": 0.024
+      },
+      "specific_action": {
+        "not_greenwashing": 0.069,
+        "greenwashing": 0.068
+      }
+    }
+  },
+  "data": {
+    "env_claims": {
+      "train": 2117,
+      "dev": 265,
+      "test": 265
+    },
+    "greenwashing_claims": 671
+  }
+}

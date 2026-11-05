@@ -1,0 +1,35 @@
+name: tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: pip install -r requirements-dev.txt
+      - name: Retrain models and check they reproduce
+        run: python src/greenwash/models.py
+      - name: Tests
+        run: pytest -q
+      - name: Dashboard smoke test
+        run: |
+          python - <<'PY'
+          from streamlit.testing.v1 import AppTest
+          at = AppTest.from_file("app/streamlit_app.py", default_timeout=240).run()
+          assert not at.exception, at.exception
+          at.radio[0].set_value("Fictional demo report").run()
+          assert not at.exception, at.exception
+          print("dashboard OK")
+          PY
