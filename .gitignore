@@ -224,3 +224,6 @@ data/raw/reports/
 *.pkl
 .streamlit/secrets.toml
 .DS_Store
+
+# GitHub Pages project website
+!site/

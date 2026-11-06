@@ -3,7 +3,7 @@
 [![tests](https://github.com/Engr-Daniel/greenwashing-detector-esg-reports/actions/workflows/tests.yml/badge.svg)](https://github.com/Engr-Daniel/greenwashing-detector-esg-reports/actions/workflows/tests.yml)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-📊 **[Live app](https://greenwashing-detector-esg-reports.streamlit.app/)** · 📐 [Methodology](docs/methodology.md)
+🌐 **[Project website](https://engr-daniel.github.io/greenwashing-detector-esg-reports/)** · 📊 **[Live app](https://greenwashing-detector-esg-reports.streamlit.app/)** · 📐 [Methodology](docs/methodology.md)
 
 **Are a company's climate claims specific enough to verify?** Upload a sustainability or annual report (PDF). The app
 finds every environmental claim with an NLP model, scores each one **0–100 for specificity and verifiability**
