@@ -3,7 +3,7 @@
 [![tests](https://github.com/Engr-Daniel/greenwashing-detector-esg-reports/actions/workflows/tests.yml/badge.svg)](https://github.com/Engr-Daniel/greenwashing-detector-esg-reports/actions/workflows/tests.yml)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-📊 Live app: *coming soon* · 📐 [Methodology](docs/methodology.md)
+📊 **[Live app](https://greenwashing-detector-esg-reports.streamlit.app/)** · 📐 [Methodology](docs/methodology.md)
 
 **Are a company's climate claims specific enough to verify?** Upload a sustainability or annual report (PDF). The app
 finds every environmental claim with an NLP model, scores each one **0–100 for specificity and verifiability**
@@ -58,6 +58,8 @@ produces a report scorecard and audit note.
 Full details and limitations: [docs/methodology.md](docs/methodology.md).
 
 ## 🖥️ The app
+**[Open the live app →](https://greenwashing-detector-esg-reports.streamlit.app/)**
+
 - **Scorecard:** grade, KPIs, red-flag profile, specificity vs an international benchmark, weakest and strongest
   claims, and questions for investors or regulators
 - **Claims:** every claim, filterable by red flag. Click one to see exactly which signals moved its score and why

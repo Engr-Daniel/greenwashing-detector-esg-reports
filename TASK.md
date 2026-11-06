@@ -12,7 +12,7 @@ Status: `[x]` done · `[ ]` to do
 - [x] Figures, tests, CI, README, methodology, AGENTS/MEMORY/TASK
 
 ## 🚀 Phase 2: Publish
-- [ ] Deploy on Streamlit Community Cloud (main file `app/streamlit_app.py`) and add the URL to the README *(you)*
+- [x] Deployed: https://greenwashing-detector-esg-reports.streamlit.app/
 - [ ] Make the repo public and pin it *(you)*
 - [ ] LinkedIn post
 
