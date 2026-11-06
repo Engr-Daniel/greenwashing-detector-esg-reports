@@ -14,7 +14,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from greenwash.analyse import analyse_pdf, scorecard, signal_counts  # noqa: E402
+from greenwash.analyse import analyse_pdf, claim_mix, scorecard, signal_counts  # noqa: E402
 from greenwash.models import load_env_claims  # noqa: E402
 from greenwash.paths import PROCESSED, RAW  # noqa: E402
 from greenwash.scoring import specificity_score  # noqa: E402
@@ -62,6 +62,7 @@ def main():
         out["reports"][key] = {
             **meta, "scorecard": sc,
             "signals": signal_counts(df).to_dict(orient="records"),
+            "mix": claim_mix(df),
             "spec_hist": c.specificity.value_counts(bins=list(range(0, 105, 5)), sort=False).astype(int).tolist(),
             "by_page": c.groupby("page").agg(claims=("sentence", "size"), specificity=("specificity", "mean"))
                         .reset_index().round(1).to_dict(orient="records"),

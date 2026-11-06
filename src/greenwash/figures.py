@@ -24,7 +24,7 @@ NOTE = "Daniel Oyewale · Petgrave.io · github.com/Engr-Daniel/greenwashing-det
 
 
 def _save(fig, name, title, sub, foot_y=-0.03):
-    fig.subplots_adjust(top=0.80)
+    fig.subplots_adjust(top=0.76)
     fig.text(0.01, 0.97, title, ha="left", va="top", fontsize=14, fontweight="bold", color=INK)
     fig.text(0.01, 0.885, sub, ha="left", va="top", fontsize=9.5, color=INK2)
     fig.text(0.01, foot_y, NOTE, ha="left", va="top", fontsize=8, color="#8a8984")
@@ -74,29 +74,37 @@ def signal_lift(m):
           f"{m['greenwashing_risk']['n']} claims labelled greenwashing / not (EmeraldMind 2026). Orange = red flag, green = evidence.")
 
 
+MIX_STYLE = [("vague_only", "Red flags, no evidence", ORANGE), ("mixed", "Red flags + evidence", BLUE),
+             ("specific", "Evidence, no red flags", AQUA), ("neutral", "Neither (plain statement)", GREY)]
+
+
 def case_studies(cs):
-    rep = cs["reports"]
-    names = [f'{r["company"].replace(" Plc", "")}\n{r["year"]}' for r in rep.values()]
-    metrics = [("share_vague", "Vague wording", ORANGE), ("share_quantified", "Quantified", BLUE),
-               ("share_verified", "Externally verified", AQUA)]
-    fig, ax = plt.subplots(figsize=(8, 4.4))
-    w = 0.26
-    for j, (k, lab, col) in enumerate(metrics):
-        vals = [r["scorecard"][k] for r in rep.values()]
-        xs = [i + (j - 1) * w for i in range(len(vals))]
-        ax.bar(xs, vals, width=w - 0.02, color=col, label=lab)
-        for x, v in zip(xs, vals):
-            ax.text(x, v + 0.008, f"{v:.0%}", ha="center", fontsize=9, color=INK)
-    ax.set_xticks(range(len(names)))
-    ax.set_xticklabels([f'{n}\nGrade {r["scorecard"]["report_grade"]} · {r["scorecard"]["claims"]} claims'
-                        for n, r in zip(names, rep.values())])
-    ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1, decimals=0))
-    ax.set_ylabel("Share of environmental claims")
-    ax.legend(frameon=False, ncol=3, loc="upper right", bbox_to_anchor=(1, 1.02))
-    ax.grid(axis="x", visible=False)
-    _save(fig, "03_nigerian_case_studies.png", "Nigerian sustainability reports: vague words outnumber verifiable numbers",
-          "Same model and rules applied to three public reports. Disclosure quality, not a finding of greenwashing.",
-          foot_y=-0.10)
+    """100% stacked bar: every claim falls in exactly one group, so each bar sums to 100%."""
+    rep = list(cs["reports"].values())[::-1]
+    fig, ax = plt.subplots(figsize=(9, 3.9))
+    left = [0.0] * len(rep)
+    for k, lab, col in MIX_STYLE:
+        vals = [r["mix"][k]["share"] for r in rep]
+        ax.barh(range(len(rep)), vals, left=left, color=col, label=lab, height=0.58, edgecolor="white", linewidth=1.5)
+        for i, (v, l0) in enumerate(zip(vals, left)):
+            if v >= 0.05:
+                ax.text(l0 + v / 2, i, f"{v:.0%}", ha="center", va="center", fontsize=10,
+                        color="white" if col != GREY else INK, fontweight="bold")
+        left = [a + b for a, b in zip(left, vals)]
+    ax.set_yticks(range(len(rep)))
+    ax.set_yticklabels([f'{r["company"].replace(" Plc", "")} {r["year"]}\n{r["scorecard"]["claims"]} claims · '
+                        f'grade {r["scorecard"]["report_grade"]}' for r in rep])
+    ax.set_xlim(0, 1)
+    ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1, decimals=0))
+    ax.set_xlabel("Share of the report's environmental claims (each bar = 100%)")
+    ax.grid(axis="y", visible=False)
+    ax.legend(frameon=False, ncol=4, loc="lower left", bbox_to_anchor=(0, 1.0), fontsize=9.5)
+    fig.subplots_adjust(left=0.22)
+    no_ev = [r["mix"]["vague_only"]["share"] + r["mix"]["neutral"]["share"] for r in rep]
+    _save(fig, "03_nigerian_case_studies.png",
+          f"{min(no_ev):.0%}–{max(no_ev):.0%} of environmental claims in each report give no verifiable evidence",
+          "Each claim is counted once. Evidence = a number with a unit, a year, baseline, scope, verification or a concrete "
+          "action. Disclosure quality, not a finding of greenwashing.", foot_y=-0.06)
 
 
 def main():

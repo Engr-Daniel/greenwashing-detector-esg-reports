@@ -103,6 +103,20 @@ def scorecard(df: pd.DataFrame, n_pages: int | None = None) -> dict:
     return out
 
 
+MIX = [("vague_only", "Red flags, no evidence"), ("mixed", "Red flags + evidence"),
+       ("specific", "Evidence, no red flags"), ("neutral", "Neither")]
+
+
+def claim_mix(df: pd.DataFrame) -> dict:
+    """Split claims into four mutually exclusive groups (shares sum to 1)."""
+    c = df[df.is_claim]
+    red, ev = c.red_flags.map(bool), c.evidence.map(bool)
+    n = max(len(c), 1)
+    counts = {"vague_only": int((red & ~ev).sum()), "mixed": int((red & ev).sum()),
+              "specific": int((~red & ev).sum()), "neutral": int((~red & ~ev).sum())}
+    return {k: {"claims": v, "share": v / n} for k, v in counts.items()}
+
+
 def signal_counts(df: pd.DataFrame) -> pd.DataFrame:
     c = df[df.is_claim]
     sig = {s.name: (s.label, s.kind) for s in load_signals()}

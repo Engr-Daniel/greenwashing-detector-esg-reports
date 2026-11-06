@@ -15,7 +15,7 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
-from greenwash.analyse import analyse_pdf, analyse_sentences, claim_mask, models, scorecard, signal_counts  # noqa: E402
+from greenwash.analyse import MIX, analyse_pdf, analyse_sentences, claim_mask, claim_mix, models, scorecard, signal_counts  # noqa: E402
 from greenwash.paths import METRICS, PROCESSED, SAMPLES  # noqa: E402
 from greenwash.pdftext import sentences  # noqa: E402
 from greenwash.scoring import explain, grade, load_signals  # noqa: E402
@@ -455,27 +455,43 @@ with t_cmp:
                      "Quantified": sc["share_quantified"], "Verified": sc["share_verified"], "Targets": sc["targets"],
                      "With baseline": sc["targets_with_baseline"]})
     cmp = pd.DataFrame(rows)
-    st.dataframe(cmp, hide_index=True, width="stretch", column_config={
+    st.dataframe(cmp.assign(**{c: cmp[c] * 100 for c in ("Vague", "Quantified", "Verified")}), hide_index=True,
+                 width="stretch", column_config={
         "Score": st.column_config.ProgressColumn("Score", min_value=0, max_value=100, format="%.0f"),
         "Median specificity": st.column_config.NumberColumn(format="%.0f"),
-        **{c: st.column_config.NumberColumn(c, format="percent") for c in ("Vague", "Quantified", "Verified")}})
-    metrics = [("Vague", "Vague wording"), ("Quantified", "Quantified"), ("Verified", "Externally verified")]
+        **{c: st.column_config.NumberColumn(c, format="%.0f%%") for c in ("Vague", "Quantified", "Verified")}})
+    mixes = [r["mix"] for r in CASES["reports"].values()]
+    if sc is not None and not case_key:
+        mixes.append(claim_mix(df))
+    mix_col = {"vague_only": ORANGE, "mixed": BLUE, "specific": AQUA, "neutral": "#b9b7b0"}
+    names = [n.replace(" Plc", "").replace(" Holdings", "").replace(" Energy", "").replace(" Cement", "")
+             if MOBILE else n for n in cmp.Report][::-1]
+    min_lab = 0.12 if MOBILE else 0.06
     fig = go.Figure()
-    for i, r in enumerate(cmp.itertuples()):
-        fig.add_trace(go.Bar(name=r.Report, x=[m[1] for m in metrics], y=[getattr(r, m[0]) for m in metrics],
-                             marker_color=SERIES[i % 3] if i < 3 else INK3, text=[pct(getattr(r, m[0])) for m in metrics],
-                             textposition="outside", textfont=dict(color=INK2, size=11), cliponaxis=False,
-                             hovertemplate="%{x}: %{y:.0%}<extra>" + r.Report + "</extra>"))
-    style(fig, "Disclosure profile", "Share of each report's environmental claims", height=380, legend=True)
-    fig.update_yaxes(tickformat=".0%", range=[0, max(0.1, cmp[["Vague", "Quantified", "Verified"]].max().max() * 1.25)])
-    fig.update_layout(bargap=0.25)
+    for k, lab in MIX:
+        vals = [m[k]["share"] for m in mixes][::-1]
+        cnts = [m[k]["claims"] for m in mixes][::-1]
+        fig.add_trace(go.Bar(y=names, x=vals, orientation="h", name=lab, marker_color=mix_col[k],
+                             marker_line=dict(color="white", width=1.5), customdata=cnts,
+                             text=[f"{v:.0%}" if v >= min_lab else "" for v in vals], textposition="inside", textangle=0,
+                             insidetextanchor="middle", textfont=dict(color=INK if k == "neutral" else "white", size=12),
+                             hovertemplate="%{y}<br>" + lab + ": %{x:.0%} (%{customdata} claims)<extra></extra>"))
+    no_ev = [m["vague_only"]["share"] + m["neutral"]["share"] for m in mixes]
+    style(fig, f"{min(no_ev):.0%}–{max(no_ev):.0%} of claims give no verifiable evidence",
+          "Each claim counted once, so each bar = 100%. Evidence = number + unit, year, baseline, scope, verification "
+          "or concrete action.", height=150 + 70 * len(mixes), legend=True)
+    fig.update_layout(barmode="stack", bargap=0.35, legend_traceorder="normal")
+    fig.update_xaxes(tickformat=".0%", range=[0, 1])
+    fig.update_yaxes(gridcolor="rgba(0,0,0,0)")
     st.plotly_chart(fig, width="stretch", config=CFG)
     best_q = cmp.loc[cmp.Quantified.idxmax()]
     most_v = cmp.loc[cmp.Vague.idxmax()]
     st.markdown(f'''<div class="card"><h4>What stands out</h4>
-      <div class="msg"><div class="n">1</div><div><div class="t">Numbers are rare</div><div class="b">Across the reports,
-      only {cmp.Quantified.min():.0%}–{cmp.Quantified.max():.0%} of environmental claims carry a number with a unit
-      ({html.escape(best_q.Report)} leads), and external verification is mentioned in under {cmp.Verified.max():.0%}.</div></div></div>
+      <div class="msg"><div class="n">1</div><div><div class="t">Most claims can't be checked</div><div class="b">
+      {min(no_ev):.0%}–{max(no_ev):.0%} of environmental claims give no verifiable evidence (no number, year, baseline,
+      scope, verification or concrete action). Only {cmp.Quantified.min():.0%}–{cmp.Quantified.max():.0%} carry a number
+      with a unit ({html.escape(best_q.Report)} leads), and external verification is mentioned in under
+      {cmp.Verified.max():.0%}.</div></div></div>
       <div class="msg"><div class="n">2</div><div><div class="t">Generic green language dominates where numbers are
       missing</div><div class="b">{html.escape(most_v.Report)} uses vague terms in {most_v.Vague:.0%} of its
       claims.</div></div></div>

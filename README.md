@@ -21,15 +21,16 @@ produces a report scorecard and audit note.
 | Claim detector (TF-IDF + logistic regression) | **macro-F1 0.864** on the expert-labelled test set: above ClimateBERT (0.819), on par with RoBERTa-large (0.868), and runs in milliseconds on a CPU |
 | Greenwashing-language model | **ROC-AUC 0.78** (5-fold CV, 671 labelled claims) |
 | Strongest red flags | Exaggerated impact appears **7.6×** more often in greenwashing claims; superlatives 3.0×; vague terms 2.6× |
-| Nigerian case studies | Access Holdings 2025 **C**, Dangote Cement 2024 **C**, Seplat Energy 2023 **D**. Vague green wording appears in 15–32% of claims, numbers with units in 3–12%, external verification in ≤3% |
+| Nigerian case studies | Access Holdings 2025 **C**, Dangote Cement 2024 **C**, Seplat Energy 2023 **D**. **82–89% of environmental claims give no verifiable evidence**. External verification is mentioned in ≤3% |
 
 ![Claim detector benchmark](reports/figures/01_claim_detector_benchmark.png)
 
 ### Nigerian sustainability reports
 ![Case studies](reports/figures/03_nigerian_case_studies.png)
 
-- **Specific numbers are rare.** Only 3–12% of environmental claims carry a number with a unit, and external
-  assurance is mentioned in ≤3%. Under IFRS S2, which Nigeria is adopting through the FRC roadmap, emissions and
+- **Most claims can't be checked.** Every claim is put in exactly one group. 82–89% either carry red flags with
+  no evidence (24–32%) or are plain statements with neither (50–65%). Only 7–15% are specific with no red flags,
+  and external assurance is mentioned in ≤3%. Under IFRS S2, which Nigeria is adopting through the FRC roadmap, emissions and
   targets must be quantified.
 - **Targets lack baselines.** Of 11 measurable targets found, 1 states a baseline year (Dangote's Scope 1 and 2
   intensity target: 691 → 563 kgCO₂/t, 2021 → 2030).

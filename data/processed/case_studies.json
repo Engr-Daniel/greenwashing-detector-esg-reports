@@ -132,6 +132,24 @@
      "share": 0.046296296296296294
     }
    ],
+   "mix": {
+    "vague_only": {
+     "claims": 35,
+     "share": 0.32407407407407407
+    },
+    "mixed": {
+     "claims": 8,
+     "share": 0.07407407407407407
+    },
+    "specific": {
+     "claims": 11,
+     "share": 0.10185185185185185
+    },
+    "neutral": {
+     "claims": 54,
+     "share": 0.5
+    }
+   },
    "spec_hist": [
     0,
     0,
@@ -594,6 +612,24 @@
      "share": 0.0313588850174216
     }
    ],
+   "mix": {
+    "vague_only": {
+     "claims": 73,
+     "share": 0.25435540069686413
+    },
+    "mixed": {
+     "claims": 9,
+     "share": 0.0313588850174216
+    },
+    "specific": {
+     "claims": 44,
+     "share": 0.15331010452961671
+    },
+    "neutral": {
+     "claims": 161,
+     "share": 0.5609756097560976
+    }
+   },
    "spec_hist": [
     0,
     0,
@@ -1184,6 +1220,24 @@
      "share": 0.031007751937984496
     }
    ],
+   "mix": {
+    "vague_only": {
+     "claims": 62,
+     "share": 0.24031007751937986
+    },
+    "mixed": {
+     "claims": 10,
+     "share": 0.03875968992248062
+    },
+    "specific": {
+     "claims": 18,
+     "share": 0.06976744186046512
+    },
+    "neutral": {
+     "claims": 168,
+     "share": 0.6511627906976745
+    }
+   },
    "spec_hist": [
     0,
     0,
