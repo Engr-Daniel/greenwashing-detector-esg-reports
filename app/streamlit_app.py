@@ -35,7 +35,7 @@ st.set_page_config(page_title="Greenwashing detector for sustainability reports"
                    initial_sidebar_state="auto")
 st.markdown(f"""
 <style>
-  .block-container {{padding-top:1.8rem; padding-bottom:3rem; max-width:1320px;}}
+  .block-container {{padding-top:4.6rem; padding-bottom:3rem; max-width:1320px;}}
   h1, h2, h3, h4 {{letter-spacing:-0.02em;}}
   [data-testid="stSidebar"] {{border-right:1.5px solid {INK};}}
   .sb-h {{font-size:0.95rem; font-weight:700; color:{INK}; margin:16px 0 4px;}}
@@ -83,7 +83,7 @@ st.markdown(f"""
   div[data-testid="stTabs"] button[aria-selected="true"] p {{background:linear-gradient(transparent 60%, {HL} 60%);}}
   .mobile-hint {{display:none;}}
   @media (max-width: 768px) {{
-    .block-container {{padding-left:0.9rem; padding-right:0.9rem; padding-top:3.2rem;}}
+    .block-container {{padding-left:0.9rem; padding-right:0.9rem; padding-top:4rem;}}
     .hero h1 {{font-size:1.6rem;}} .hero p {{font-size:0.92rem;}} .hero .doc span {{display:block; margin:6px 0 0;}}
     .kpis {{grid-template-columns:repeat(2, 1fr);}} .kpi {{min-height:0; padding:12px; border-bottom:1px solid {BORDER};}}
     .kpi .value {{font-size:1.45rem;}} .kpi .sub {{font-size:0.76rem;}}
