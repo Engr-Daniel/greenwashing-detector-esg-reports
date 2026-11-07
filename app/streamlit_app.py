@@ -21,7 +21,8 @@ from greenwash.pdftext import sentences  # noqa: E402
 from greenwash.scoring import explain, grade, load_signals  # noqa: E402
 
 # ----------------------------------------------------------------------------- design tokens
-INK, INK2, INK3, BORDER, GRID, SURFACE = "#0b0b0b", "#52514e", "#8a8984", "#e7e5e0", "#ecebe7", "#ffffff"
+INK, INK2, INK3, BORDER, GRID, SURFACE = "#202326", "#5e6469", "#8b9095", "#e2e4e6", "#eceeef", "#ffffff"
+HL, RED, OK = "#ffe45c", "#c4271b", "#18794e"
 BLUE, ORANGE, AQUA, NAVY, FOREST = "#2a78d6", "#eb6834", "#1baf7a", "#0d366b", "#0f5132"
 SERIES = [BLUE, ORANGE, AQUA]
 REPO = "https://github.com/Engr-Daniel/greenwashing-detector-esg-reports"
@@ -30,74 +31,66 @@ SIG = {s.name: s for s in load_signals()}
 DISCLAIMER = ("Scores measure how **specific and verifiable** the language of a report is. They are not a finding "
               "that any company is greenwashing, and they don't check whether the claims are true.")
 
-st.set_page_config(page_title="Greenwashing Detector · ESG reports", page_icon="🔎", layout="wide",
+st.set_page_config(page_title="Greenwashing detector for sustainability reports", page_icon=str(Path(__file__).parent / "static" / "favicon.png"), layout="wide",
                    initial_sidebar_state="auto")
 st.markdown(f"""
 <style>
-  .block-container {{padding-top:1.4rem; padding-bottom:3rem; max-width:1400px;}}
-  [data-testid="stSidebar"] {{border-right:1px solid {BORDER};}}
-  .sb-h {{font-size:0.7rem; font-weight:700; letter-spacing:0.08em; color:{INK3}; text-transform:uppercase; margin:16px 0 4px;}}
-  .hero {{background:linear-gradient(120deg, #0b3d2e 0%, {FOREST} 55%, #187a52 100%); color:#fff; border-radius:18px;
-          padding:26px 30px 22px; margin-bottom:18px; position:relative; overflow:hidden;}}
-  .hero:after {{content:""; position:absolute; right:-70px; top:-90px; width:320px; height:320px; border-radius:50%;
-          background:radial-gradient(circle, rgba(170,240,200,0.35) 0%, rgba(170,240,200,0) 68%);}}
-  .hero .eyebrow {{font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase; opacity:0.85; font-weight:600;}}
-  .hero h1 {{color:#fff; font-size:2.0rem; line-height:1.2; margin:6px 0 8px; padding:0; font-weight:700;}}
-  .hero p {{color:rgba(255,255,255,0.88); margin:0; font-size:1.0rem; max-width:880px; line-height:1.5;}}
-  .hero .meta {{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}}
-  .hero .chip {{font-size:0.76rem; padding:4px 11px; border-radius:999px; background:rgba(255,255,255,0.12);
-          border:1px solid rgba(255,255,255,0.24); color:#fff;}}
-  .hero .chip.warn {{background:rgba(255,214,102,0.18); border-color:rgba(255,214,102,0.5);}}
-  .kpis {{display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin-bottom:6px;}}
-  .kpi {{background:{SURFACE}; border:1px solid {BORDER}; border-radius:14px; padding:16px 18px 14px; min-height:122px;
-         box-shadow:0 1px 2px rgba(16,24,40,0.04);}}
-  .kpi .label {{font-size:0.7rem; color:{INK2}; text-transform:uppercase; letter-spacing:0.07em; font-weight:700;}}
-  .kpi .value {{font-size:1.8rem; font-weight:700; color:{INK}; line-height:1.15; margin-top:8px; font-variant-numeric:tabular-nums;}}
-  .kpi .unit {{font-size:0.9rem; font-weight:500; color:{INK2}; margin-left:2px;}}
-  .kpi .sub {{font-size:0.8rem; color:{INK2}; margin-top:6px; line-height:1.35;}}
-  .gradebox {{display:flex; gap:18px; align-items:center; background:{SURFACE}; border:1px solid {BORDER};
-         border-radius:14px; padding:16px 20px; margin-bottom:14px;}}
-  .gradebox .g {{flex:0 0 74px; height:74px; border-radius:50%; background:{NAVY}; color:#fff; font-size:2.3rem;
-         font-weight:800; display:flex; align-items:center; justify-content:center;}}
-  .gradebox .t {{font-size:1.05rem; color:{INK}; line-height:1.5;}}
-  .gradebox .s {{font-size:0.86rem; color:{INK2}; margin-top:2px;}}
-  .card {{background:{SURFACE}; border:1px solid {BORDER}; border-radius:14px; padding:16px 18px; height:100%;
-          box-shadow:0 1px 2px rgba(16,24,40,0.04);}}
-  .card h4 {{margin:0 0 10px; padding:0; font-size:0.98rem;}}
-  .muted {{color:{INK2}; font-size:0.84rem; line-height:1.5;}}
-  .quote {{border-left:4px solid {BORDER}; padding:6px 12px; margin:8px 0; font-size:0.9rem; color:{INK}; line-height:1.45;}}
-  .quote.bad {{border-left-color:{ORANGE};}} .quote.good {{border-left-color:{AQUA};}}
-  .quote .m {{font-size:0.74rem; color:{INK3}; margin-top:3px;}}
-  .tag {{display:inline-block; font-size:0.72rem; padding:2px 8px; border-radius:999px; margin:2px 4px 2px 0;
-         border:1px solid {BORDER}; color:{INK2}; background:#faf9f6;}}
-  .tag.red {{border-color:rgba(235,104,52,0.45); color:#9a3b12; background:rgba(235,104,52,0.07);}}
-  .tag.green {{border-color:rgba(27,175,122,0.45); color:#0f6b4b; background:rgba(27,175,122,0.07);}}
-  .msg {{display:flex; gap:12px; align-items:flex-start; margin-bottom:12px;}}
-  .msg .n {{flex:0 0 26px; height:26px; border-radius:50%; background:{FOREST}; color:#fff; font-weight:700;
-         font-size:0.8rem; display:flex; align-items:center; justify-content:center;}}
-  .msg .t {{font-weight:700; font-size:0.92rem; color:{INK};}} .msg .b {{font-size:0.85rem; color:{INK2}; line-height:1.45;}}
-  .sec {{font-size:1.18rem; font-weight:700; color:{INK}; margin:22px 0 2px;}}
-  .sec-sub {{font-size:0.88rem; color:{INK2}; margin:0 0 12px;}}
-  .notice {{font-size:0.84rem; color:{INK2}; background:#fbf7ec; border:1px solid #efe3c2; border-radius:10px;
-         padding:10px 14px; margin:4px 0 14px;}}
-  .foot {{border-top:1px solid {BORDER}; margin-top:34px; padding-top:14px; font-size:0.78rem; color:{INK3}; line-height:1.6;}}
-  .foot a {{color:{INK2};}}
-  div[data-testid="stTabs"] [data-baseweb="tab-list"] {{gap:6px; border-bottom:1px solid {BORDER};}}
-  div[data-testid="stTabs"] button {{padding:10px 14px;}}
-  div[data-testid="stTabs"] button p {{font-size:0.95rem; font-weight:600;}}
+  .block-container {{padding-top:1.8rem; padding-bottom:3rem; max-width:1320px;}}
+  h1, h2, h3, h4 {{letter-spacing:-0.02em;}}
+  [data-testid="stSidebar"] {{border-right:1.5px solid {INK};}}
+  .sb-h {{font-size:0.95rem; font-weight:700; color:{INK}; margin:16px 0 4px;}}
+  .hero {{padding:6px 0 22px; margin-bottom:22px; border-bottom:1.5px solid {INK};}}
+  .hero h1 {{font-size:clamp(1.8rem, 3.6vw, 2.9rem); line-height:1.05; letter-spacing:-.03em; margin:0 0 12px; padding:0;
+            font-weight:700; max-width:24ch;}}
+  .hero p {{color:{INK2}; margin:0; font-size:1rem; max-width:76ch; line-height:1.55;}}
+  .hero .doc {{margin-top:18px; font-size:.95rem; color:{INK2};}}
+  .hero .doc q {{font-family:Spectral, Georgia, serif; font-style:italic; font-size:1.25rem; color:{INK}; quotes:none;
+               background:linear-gradient(transparent 58%, {HL} 58%); padding:0 3px;}}
+  .hero .doc span {{margin-left:10px;}}
+  .kpis {{display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr)); border:1.5px solid {INK}; margin-bottom:10px;}}
+  .kpi {{padding:14px 16px 12px; min-height:118px; border-right:1px solid {BORDER};}}
+  .kpi:last-child {{border-right:0;}}
+  .kpi .label {{font-size:0.86rem; color:{INK}; font-weight:600;}}
+  .kpi .value {{font-size:2rem; font-weight:700; color:{INK}; line-height:1.1; margin-top:6px; letter-spacing:-.02em;
+               font-variant-numeric:tabular-nums;}}
+  .kpi .unit {{font-size:0.9rem; font-weight:500; color:{INK2}; margin-left:3px; letter-spacing:0;}}
+  .kpi .sub {{font-size:0.82rem; color:{INK2}; margin-top:4px; line-height:1.4;}}
+  .gradebox {{display:flex; gap:22px; align-items:center; border:1.5px solid {INK}; padding:18px 22px; margin-bottom:16px;}}
+  .gradebox .g {{flex:0 0 auto; font-size:4rem; font-weight:800; line-height:.9; color:{RED}; letter-spacing:-.04em;}}
+  .gradebox .t {{font-size:1.08rem; color:{INK}; line-height:1.5;}}
+  .gradebox .s {{font-size:0.88rem; color:{INK2}; margin-top:2px;}}
+  .card {{border:1px solid {BORDER}; border-top:1.5px solid {INK}; padding:16px 18px; height:100%;}}
+  .card h4 {{margin:0 0 10px; padding:0; font-size:1.02rem;}}
+  .muted {{color:{INK2}; font-size:0.88rem; line-height:1.5;}}
+  .quote {{font-family:Spectral, Georgia, serif; border-left:3px solid {BORDER}; padding:4px 14px; margin:10px 0;
+          font-size:1.02rem; color:{INK}; line-height:1.5;}}
+  .quote.bad {{border-left-color:{RED};}} .quote.good {{border-left-color:{OK};}}
+  .quote .m {{font-family:"Work Sans", sans-serif; font-size:0.78rem; color:{INK2}; margin-top:3px;}}
+  .tag {{display:inline-block; font-size:0.76rem; padding:1px 6px; margin:2px 6px 2px 0; color:{INK}; font-weight:500;}}
+  .tag.red {{background:{HL};}}
+  .tag.green {{color:{OK}; box-shadow:inset 0 -2px 0 {OK};}}
+  .msg {{display:flex; gap:12px; align-items:flex-start; margin-bottom:14px;}}
+  .msg .n {{flex:0 0 8px; width:8px; height:8px; background:{RED}; font-size:0; margin-top:8px;}}
+  .msg .t {{font-weight:700; font-size:0.95rem; color:{INK};}} .msg .b {{font-size:0.88rem; color:{INK2}; line-height:1.45;}}
+  .sec {{font-size:1.35rem; font-weight:700; color:{INK}; margin:28px 0 2px; letter-spacing:-.02em;}}
+  .sec-sub {{font-size:0.9rem; color:{INK2}; margin:0 0 12px;}}
+  .notice {{font-size:0.88rem; color:{INK}; border-left:4px solid {HL}; padding:6px 12px; margin:4px 0 16px;}}
+  .foot {{border-top:1.5px solid {INK}; margin-top:40px; padding-top:14px; font-size:0.84rem; color:{INK2}; line-height:1.6;}}
+  .foot a {{color:{INK};}}
+  div[data-testid="stTabs"] [data-baseweb="tab-list"] {{gap:0; border-bottom:1.5px solid {INK};}}
+  div[data-testid="stTabs"] button {{padding:10px 16px;}}
+  div[data-testid="stTabs"] button p {{font-size:0.98rem; font-weight:600;}}
+  div[data-testid="stTabs"] button[aria-selected="true"] p {{background:linear-gradient(transparent 60%, {HL} 60%);}}
   .mobile-hint {{display:none;}}
   @media (max-width: 768px) {{
-    .block-container {{padding-left:0.8rem; padding-right:0.8rem; padding-top:3.2rem;}}
-    .hero {{padding:18px 18px 16px; border-radius:14px;}} .hero h1 {{font-size:1.4rem;}} .hero p {{font-size:0.9rem;}}
-    .hero:after {{width:180px; height:180px; right:-50px; top:-60px;}}
-    .kpis {{grid-template-columns:repeat(2, 1fr); gap:8px;}}
-    .kpi {{min-height:0; padding:12px 12px 10px;}} .kpi .value {{font-size:1.4rem;}} .kpi .sub {{font-size:0.74rem;}}
-    .gradebox {{padding:12px 14px; gap:12px;}} .gradebox .g {{flex-basis:56px; height:56px; font-size:1.8rem;}}
-    .gradebox .t {{font-size:0.95rem;}}
-    .mobile-hint {{display:block; font-size:0.78rem; margin-top:12px; opacity:0.9;}}
+    .block-container {{padding-left:0.9rem; padding-right:0.9rem; padding-top:3.2rem;}}
+    .hero h1 {{font-size:1.6rem;}} .hero p {{font-size:0.92rem;}} .hero .doc span {{display:block; margin:6px 0 0;}}
+    .kpis {{grid-template-columns:repeat(2, 1fr);}} .kpi {{min-height:0; padding:12px; border-bottom:1px solid {BORDER};}}
+    .kpi .value {{font-size:1.45rem;}} .kpi .sub {{font-size:0.76rem;}}
+    .gradebox {{padding:14px; gap:14px;}} .gradebox .g {{font-size:3rem;}} .gradebox .t {{font-size:0.95rem;}}
+    .mobile-hint {{display:block; font-size:0.82rem; margin-top:12px; color:{INK2};}}
     div[data-testid="stTabs"] [data-baseweb="tab-list"] {{overflow-x:auto; flex-wrap:nowrap;}}
-    div[data-testid="stTabs"] button {{padding:8px 8px; white-space:nowrap;}}
-    div[data-testid="stTabs"] button p {{font-size:0.85rem;}}
+    div[data-testid="stTabs"] button {{padding:8px 10px; white-space:nowrap;}} div[data-testid="stTabs"] button p {{font-size:0.86rem;}}
   }}
 </style>""", unsafe_allow_html=True)
 try:
@@ -121,12 +114,11 @@ def section(title, sub=""):
 def style(fig, title, sub=None, height=340, legend=False):
     fig.update_layout(
         title=dict(text=f"<b>{title}</b>" + (f"<br><span style='font-size:12px;color:{INK2};font-weight:400'>{sub}</span>"
-                                             if sub else ""), x=0, xanchor="left", y=0.97, font=dict(size=15, color=INK)),
-        height=height, margin=dict(l=6, r=24, t=74 if sub else 48, b=8), paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)", font=dict(color=INK2, size=12), barcornerradius=4,
+                                             if sub else ""), x=0, xanchor="left", y=0.97, font=dict(size=16, color=INK)),
+        height=height, margin=dict(l=6, r=24, t=74 if sub else 48, b=60 if legend else 8), paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)", font=dict(family="Work Sans, sans-serif", color=INK2, size=12), barcornerradius=0,
         hoverlabel=dict(bgcolor="white", bordercolor=BORDER, font=dict(color=INK, size=12)),
-        showlegend=legend, legend=(dict(orientation="h", y=-0.12, yanchor="top", x=0, title=None) if MOBILE else
-                                   dict(orientation="h", y=1.0, yanchor="bottom", x=0, title=None)))
+        showlegend=legend, legend=dict(orientation="h", y=-0.1, yanchor="top", x=0, title=None))
     fig.update_xaxes(gridcolor=GRID, zeroline=False, linecolor=BORDER)
     fig.update_yaxes(gridcolor=GRID, zeroline=False, linecolor=BORDER)
     return fig
@@ -171,7 +163,7 @@ BENCH = CASES["benchmark"]
 
 # ----------------------------------------------------------------------------- sidebar
 with st.sidebar:
-    st.markdown("### 🔎 Report to analyse")
+    st.markdown("### Report to analyse")
     src = st.radio("Source", ["Nigerian case studies", "Upload a PDF", "Paste text", "Fictional demo report"],
                    label_visibility="collapsed")
     case_key, df, n_pages, meta = None, None, None, {}
@@ -206,8 +198,8 @@ with st.sidebar:
         df = df.copy()
         df["is_claim"] = claim_mask(df, th)
     st.divider()
-    st.link_button("Code & methodology on GitHub", REPO, width="stretch")
-    st.caption("Built by **Daniel Oyewale** · Data & Sustainability, Petgrave.io")
+    st.link_button("Code and methodology", REPO, width="stretch")
+    st.caption("Daniel Oyewale")
 
 # ----------------------------------------------------------------------------- current report summary
 if case_key:
@@ -227,19 +219,13 @@ else:
     sc = None
 
 label = f'{meta.get("company", "")} {meta.get("year", "")}'.strip() if meta else ""
-st.markdown(f"""
-<div class="hero">
-  <div class="eyebrow">ESG disclosure analytics · Greenwashing risk</div>
+st.markdown(f"""<div class="hero">
   <h1>Are these climate claims specific enough to verify?</h1>
-  <p>Reads a sustainability report, finds every environmental claim with a model trained on 2,600 expert-labelled
-     sentences, then scores each one for specificity and verifiability against the EU and UK green-claims rules:
-     vague wording, absolute claims, reliance on offsets, missing baselines, missing numbers and missing verification.</p>
-  <div class="meta">
-    <span class="chip">Report: <b>{html.escape(label) or "none selected"}</b></span>
-    <span class="chip">Claim detector macro-F1 {METR["claim_detector"]["macro_f1"]:.2f}</span>
-    <span class="chip warn">Measures disclosure quality, not proof of greenwashing</span>
-  </div>
-  <div class="mobile-hint">Tap <b>›</b> at the top left to choose or upload a report.</div>
+  <p>The detector reads a sustainability report, finds every environmental claim, and scores each one for the things
+     EU and UK green-claims rules ask for: numbers, baselines, scope and independent verification, without vague,
+     absolute or offset-only wording.</p>
+  <div class="doc">Report under review: <q>{html.escape(label) or "none selected"}</q></div>
+  <div class="mobile-hint">Open the menu at the top left to choose or upload a report.</div>
 </div>""", unsafe_allow_html=True)
 
 t_score, t_claims, t_targets, t_cmp, t_meth = st.tabs(["Scorecard", "Claims", "Targets", "Compare reports",
@@ -264,7 +250,7 @@ else:
             {f'The most common red flags are {red_txt}.' if red_txt else ''}</div>
             <div class="s">Report score {sc['report_score']:.0f}/100 = 75% average claim specificity + 25% target completeness.</div>
             </div></div>""", unsafe_allow_html=True)
-        st.markdown(f'<div class="notice">⚖️ {DISCLAIMER.replace("**", "<b>", 1).replace("**", "</b>", 1)}</div>',
+        st.markdown(f'<div class="notice">{DISCLAIMER.replace("**", "<b>", 1).replace("**", "</b>", 1)}</div>',
                     unsafe_allow_html=True)
         kpi_row([
             ("Environmental claims", f"{n_claims:,}", "", f"{sc['claim_density']:.0%} of {sc['sentences']:,} sentences"
@@ -282,7 +268,7 @@ else:
             s2["order"] = s2.kind.map({"red": 0, "green": 1})
             s2 = s2.sort_values(["order", "share"], ascending=[False, True])
             fig = go.Figure()
-            for kind, col, name in (("red", ORANGE, "Red flag"), ("green", AQUA, "Evidence")):
+            for kind, col, name in (("red", RED, "Red flag"), ("green", OK, "Evidence")):
                 d = s2[s2.kind == kind]
                 fig.add_trace(go.Bar(y=d.signal, x=d.share, orientation="h", marker_color=col, name=name,
                                      text=[f"{v:.0%}" for v in d.share], textposition="outside", cliponaxis=False,
@@ -381,7 +367,7 @@ else:
                                   "risk": st.column_config.ProgressColumn("Language risk", min_value=0, max_value=100,
                                                                           format="%d%%", help="Probability from the "
                                                                           "greenwashing-language model (CV AUC 0.78)")})
-            st.download_button("⬇ Download all claims (CSV)", claims.drop(columns=["signals", "target"]).assign(
+            st.download_button("Download all claims (CSV)", claims.drop(columns=["signals", "target"]).assign(
                 red_flags=claims.red_flags.map("; ".join), evidence=claims.evidence.map("; ".join)).to_csv(index=False)
                 .encode(), "claims.csv", "text/csv")
             sel = getattr(getattr(ev, "selection", None), "rows", None)
@@ -574,16 +560,13 @@ table{{border-collapse:collapse;width:100%;font-size:12px}} th,td{{border-bottom
 <div><span>Verified</span><b>{pct(sc['share_verified'])}</b></div></div>
 <h3>Least specific claims</h3><ul>{q(weak_)}</ul><h3>Most specific claims</h3><ul>{q(strong_)}</ul>
 <h3>Measurable targets</h3>{'<p>None found.</p>' if not trows else '<table><tr><th>Page</th><th>Type</th><th>Year</th><th>Baseline</th><th>Complete</th><th>Text</th></tr>' + trows + '</table>'}
-<div class="note">{DISCLAIMER.replace('**', '')} Method: {REPO}. Prepared with the Greenwashing Detector by Daniel Oyewale, Petgrave.io.</div></body></html>"""
+<div class="note">{DISCLAIMER.replace('**', '')} Method: {REPO}. Prepared with the Greenwashing Detector by Daniel Oyewale.</div></body></html>"""
 
 
 if sc is not None:
     with st.sidebar:
-        st.download_button("⬇ Claims audit note (HTML, print to PDF)", audit_html().encode(), "claims_audit.html",
+        st.download_button("Claims audit note (HTML, print to PDF)", audit_html().encode(), "claims_audit.html",
                            "text/html", width="stretch")
 
-st.markdown(f"""<div class="foot"><b>Data:</b> Stammbach et al. (2023) environmental claims dataset · EmeraldMind
-greenwashing claims (2026, Apache 2.0) · company reports: Access Holdings 2025, Dangote Cement 2024, Seplat Energy 2023
-(public PDFs, excerpts only). <b>Rules:</b> EU Directive 2024/825 · UK CMA Green Claims Code · GHG Protocol · IFRS S2.<br>
-{DISCLAIMER.replace('**', '')} · <a href="{REPO}">Code &amp; methodology</a> · Built by Daniel Oyewale, Petgrave.io</div>""",
-            unsafe_allow_html=True)
+st.markdown(f"""<div class="foot">Data, rules and model details are under Method &amp; model.
+<a href="{REPO}">Source code</a></div>""", unsafe_allow_html=True)

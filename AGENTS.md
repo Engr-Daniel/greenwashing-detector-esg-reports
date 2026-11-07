@@ -4,7 +4,7 @@ Instructions for AI coding agents and human collaborators working in this reposi
 
 ## Project at a glance
 An NLP tool and Streamlit app that finds environmental claims in ESG / sustainability reports (PDF) and scores how
-specific and verifiable they are. Portfolio project by Daniel Oyewale (Petgrave.io).
+specific and verifiable they are. Personal portfolio project by Daniel Oyewale.
 
 **Read `MEMORY.md` (context & decisions) and `TASK.md` (priorities) before starting work.**
 

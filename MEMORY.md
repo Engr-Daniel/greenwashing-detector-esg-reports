@@ -3,8 +3,8 @@
 Long-term project memory: context, decisions and lessons. Newest first.
 
 ## Context
-- **Owner:** Daniel Oyewale (Petgrave.io). Portfolio project 5 (bonus AI project). Others: 1 carbon-footprint-esg-dashboard
-  (done), 2 Petgrave Data Strategy Blueprint case study (paused), 3 solar-minigrid-site-suitability-nigeria (done),
+- **Owner:** Daniel Oyewale (personal portfolio project; no employer affiliation in this repo). Portfolio project 5 (bonus AI project). Others: 1 carbon-footprint-esg-dashboard
+  (done), 2 data-strategy case studies (paused), 3 solar-minigrid-site-suitability-nigeria (done),
   4 climate risk & crop yields (next).
 - **Build constraints:** Hugging Face, Zenodo and company websites were blocked from the build environment, so no
   transformer downloads. Data came from GitHub. The owner supplied the three Nigerian report PDFs.
@@ -17,6 +17,7 @@ Long-term project memory: context, decisions and lessons. Newest first.
 ## Decision log
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-11-07 | Own visual identity for app and site: Work Sans + Spectral, white/ink/highlighter yellow, document-markup styling. Fonts self-hosted (app/static, site/assets/fonts, SIL OFL) | Owner: each project must look distinct, not like a generic template; personal project, so no employer branding |
 | 2026-11-05 | TF-IDF + LR claim detector instead of ClimateBERT | No HF access. Matches RoBERTa-large macro-F1, CPU-fast, free to host |
 | 2026-11-05 | Specificity score = transparent rules with normative weights; ML risk as secondary signal | Explainable to regulators and investors; avoids overfitting the small, semi-synthetic labelled set |
 | 2026-11-05 | Strict target definition (year, or target word + %) | Generic "commitment to sustainability" inflated target counts |

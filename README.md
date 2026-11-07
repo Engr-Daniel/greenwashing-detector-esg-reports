@@ -103,6 +103,6 @@ pytest -q
 - Company reports: Access Holdings Sustainability Report 2025 · Dangote Cement 2024 Sustainability Report · Seplat Energy Sustainability Report 2023
 
 ## 👤 Author
-**Daniel Oyewale**, Data Analyst · Data Strategist · Sustainability Researcher at [Petgrave.io](https://petgrave.io).
+**Daniel Oyewale**, data analyst, data strategist and sustainability researcher.
 Other projects: [Carbon Footprint & ESG Dashboard](https://github.com/Engr-Daniel/carbon-footprint-esg-dashboard) ·
 [Solar Mini-Grid Site Suitability](https://github.com/Engr-Daniel/solar-minigrid-site-suitability-nigeria)

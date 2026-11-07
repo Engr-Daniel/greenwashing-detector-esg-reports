@@ -1,90 +1,79 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Greenwashing Detector · Daniel Oyewale</title>
-<meta name="description" content="Upload a sustainability report. The app finds every environmental claim with an NLP model, scores each 0–100 for specificity and verifiability against EU and UK green-claims rules, and checks climate targets for completeness.">
-<meta name="author" content="Daniel Oyewale">
+<title>Are a company&#x27;s climate claims specific enough to verify? | Daniel Oyewale</title>
+<meta name="description" content="Upload a sustainability report. The app finds every environmental claim with an NLP model, scores each 0–100 for specificity and verifiability against EU and UK green-claims rules, and checks climate targets for completeness."><meta name="author" content="Daniel Oyewale">
 <meta property="og:type" content="website"><meta property="og:url" content="https://engr-daniel.github.io/greenwashing-detector-esg-reports/">
 <meta property="og:title" content="Are a company&#x27;s climate claims specific enough to verify?"><meta property="og:description" content="Upload a sustainability report. The app finds every environmental claim with an NLP model, scores each 0–100 for specificity and verifiability against EU and UK green-claims rules, and checks climate targets for completeness.">
-<meta property="og:image" content="https://engr-daniel.github.io/greenwashing-detector-esg-reports/assets/dashboard.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔎</text></svg>">
-<style>
-:root{--a:#15803d;--a2:#0f5132;--ink:#0b0b0b;--ink2:#52514e;--ink3:#8a8984;--line:#e7e5e0;--bg:#fcfcfb;--card:#fff}
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;overflow-x:hidden;font-family:Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
-a{color:var(--a)} img{max-width:100%;display:block}
-.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
-nav{position:sticky;top:0;z-index:10;background:rgba(252,252,251,.88);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
-nav .brand{font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
-nav .links{display:flex;gap:20px;font-size:.92rem} nav .links a{color:var(--ink2);text-decoration:none} nav .links a:hover{color:var(--a)}
-header.hero{background:linear-gradient(125deg,var(--a2) 0%,var(--a) 70%);color:#fff;padding:64px 0 0;overflow:hidden}
-.hero .eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.85}
-.hero h1{font-size:clamp(1.8rem,4.2vw,3rem);line-height:1.12;margin:12px 0 16px;max-width:900px;letter-spacing:-.01em}
-.hero p.lead{font-size:clamp(1rem,1.6vw,1.15rem);max-width:780px;opacity:.92;margin:0}
-.ctas{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 40px}
-.btn{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.4)}
-.btn:hover{background:rgba(255,255,255,.12)} .btn.primary{background:#fff;color:var(--a2);border-color:#fff} .btn.primary:hover{background:#f1f1ee}
-.shots{position:relative;max-width:1000px;margin:0 auto}
-.shot{border-radius:14px 14px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.25);border-bottom:0}
-.phone{position:absolute;right:-18px;bottom:0;width:22%;border-radius:18px 18px 0 0;border:6px solid #111;border-bottom:0;box-shadow:0 10px 40px rgba(0,0,0,.35)}
-.note{background:#fbf7ec;border:1px solid #efe3c2;color:var(--ink2);border-radius:12px;padding:12px 16px;font-size:.9rem;margin:28px 0 0}
-section{padding:56px 0 8px} h2{font-size:1.6rem;margin:0 0 6px;letter-spacing:-.01em} .sub{color:var(--ink2);margin:0 0 24px}
-.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
-.kpi .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink2);font-weight:700}
-.kpi .v{font-size:1.9rem;font-weight:750;margin-top:8px;font-variant-numeric:tabular-nums;line-height:1.1} .kpi .v span{font-size:.95rem;font-weight:500;color:var(--ink2);margin-left:3px}
-.kpi .s{font-size:.84rem;color:var(--ink2);margin-top:6px}
-ol.finds{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:14px}
-ol.finds li{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-ol.finds .n{flex:0 0 30px;height:30px;border-radius:50%;background:var(--a);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.85rem}
-ol.finds h3{margin:0 0 4px;font-size:1rem} ol.finds p{margin:0;color:var(--ink2);font-size:.92rem}
-.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:18px}
-figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;overflow:hidden}
-figure img{border-radius:6px} figcaption{font-size:.88rem;color:var(--ink2);margin-top:10px}
-ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
-ol.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;column-gap:12px;align-items:baseline;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-ol.steps li:before{content:counter(s,decimal-leading-zero);grid-row:span 2;font-weight:800;color:var(--a);font-size:1.15rem}
-ol.steps b{display:block} ol.steps span{color:var(--ink2);font-size:.92rem}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px} .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
-.panel h3{margin:0 0 12px;font-size:1.02rem} .panel ul{margin:0;padding-left:18px;color:var(--ink2);font-size:.92rem} .panel li{margin-bottom:5px}
-.chip{display:inline-block;font-size:.82rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line);margin:0 6px 8px 0;background:#faf9f6}
-.lim{color:var(--ink2);font-size:.92rem;margin:14px 0 0}
-.others{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px}
-.other{display:flex;gap:14px;align-items:flex-start;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;transition:border-color .15s,transform .15s}
-.other:hover{border-color:var(--a);transform:translateY(-2px)} .oi{font-size:1.8rem;line-height:1} .other b{display:block} .other em{font-style:normal;color:var(--ink2);font-size:.9rem}
-footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 40px;color:var(--ink3);font-size:.86rem} footer a{color:var(--ink2)}
-@media (max-width:1000px){ .kpis{grid-template-columns:repeat(3,1fr)} }
-@media (max-width:760px){
-  nav .links a.hide-m{display:none} header.hero{padding-top:40px} .ctas{margin-bottom:28px}
-  .phone{display:none} .figs{grid-template-columns:1fr} .two{grid-template-columns:1fr}
-  .kpis{grid-template-columns:repeat(2,1fr);gap:10px} .kpi{padding:14px} .kpi .v{font-size:1.35rem} .kpi .v span{font-size:.78rem}
-  .kpi:last-child:nth-child(odd){grid-column:span 2} nav .brand{font-size:.9rem;overflow:hidden;text-overflow:ellipsis} nav .links{gap:12px;font-size:.86rem;flex-shrink:0}
-  section{padding-top:40px}
-}
+<meta property="og:image" content="https://engr-daniel.github.io/greenwashing-detector-esg-reports/assets/dashboard.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='white'/><rect y='17' width='32' height='9' fill='%23ffe45c'/><rect x='3' y='8' width='26' height='3' fill='%23202326'/><rect x='3' y='19' width='18' height='3' fill='%23202326'/></svg>">
+<style>@font-face{font-family:"Work Sans";src:url(assets/fonts/work-sans-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-stretch:100%;font-style:normal;font-display:swap}
+@font-face{font-family:"Spectral";src:url(assets/fonts/spectral-latin-400-normal.woff2) format("woff2");font-weight:400;font-stretch:100%;font-style:normal;font-display:swap}
+@font-face{font-family:"Spectral";src:url(assets/fonts/spectral-latin-400-italic.woff2) format("woff2");font-weight:400;font-stretch:100%;font-style:italic;font-display:swap}
+*{box-sizing:border-box} html{scroll-behavior:smooth} img{max-width:100%;height:auto;display:block}
+body{margin:0;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+:root{--ink:#202326;--ink2:#5e6469;--rule:#e2e4e6;--hl:#ffe45c;--red:#c4271b;--ok:#18794e;--paper:#fff}
+body{font-family:"Work Sans",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px}
+a{color:var(--ink)} .w{max-width:1120px;margin:0 auto;padding:0 32px}
+.top{display:flex;justify-content:space-between;padding:24px 0;font-size:.95rem} .top b{font-weight:600}
+.top nav a{margin-left:24px;text-decoration:none;color:var(--ink2)} .top nav a:hover{color:var(--ink)}
+h1{font-weight:700;font-size:clamp(2.1rem,4.8vw,3.8rem);line-height:1.05;letter-spacing:-.03em;margin:48px 0 18px;max-width:18ch}
+.lead{font-size:1.15rem;color:var(--ink2);max-width:62ch;margin:0}
+.acts{margin:26px 0 0} .acts a{display:inline-block;margin:0 18px 10px 0;font-weight:600;text-decoration-thickness:2px;text-underline-offset:5px}
+.acts a.p{background:var(--ink);color:#fff;text-decoration:none;padding:12px 20px}
+.spec{margin:64px 0 0;display:grid;grid-template-columns:1fr 280px;border:1.5px solid var(--ink)}
+.claim{padding:40px 44px;border-right:1.5px solid var(--ink)}
+.claim small{display:block;color:var(--ink2);font-size:.88rem;margin-bottom:16px}
+.claim q{font-family:Spectral,Georgia,serif;font-size:clamp(1.35rem,2.5vw,2rem);line-height:1.45;quotes:none;display:block}
+mark{background:linear-gradient(transparent 55%,var(--hl) 55%);color:inherit;padding:0 2px}
+mark sup{font-family:"Work Sans";font-size:.5em;font-weight:700;color:var(--red);margin-left:2px}
+.notes{padding:28px 26px;display:flex;flex-direction:column;gap:16px;font-size:.92rem}
+.score{font-size:3.6rem;font-weight:700;line-height:1;color:var(--red);letter-spacing:-.03em} .score small{font-size:1rem;color:var(--ink2);font-weight:500}
+.notes ol{margin:0;padding-left:20px;color:var(--ink2)} .notes li{margin-bottom:8px} .notes li b{color:var(--ink)}
+.notes li::marker{color:var(--red);font-weight:700}
+.better{padding:16px 44px;border-top:1.5px solid var(--ink);grid-column:span 2;font-size:.95rem;color:var(--ink2)}
+.better b{color:var(--ok)}
+section{margin-top:96px} h2{font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.02em;margin:0 0 28px}
+.facts{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+.facts b{display:block;font-size:2.1rem;font-weight:700;letter-spacing:-.02em;line-height:1.1} .facts b small{font-size:.9rem;font-weight:500;color:var(--ink2)}
+.facts strong{display:block;font-weight:600;font-size:.95rem;margin-top:6px} .facts span{font-size:.88rem;color:var(--ink2)}
+.find{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px} .find h3{font-size:1.2rem;margin:0 0 6px;font-weight:600}
+.find p{margin:0;color:var(--ink2)} .find h3 span{background:linear-gradient(transparent 60%,var(--hl) 60%)}
+.app{display:grid;grid-template-columns:1fr 220px;gap:28px;align-items:end} .app img{border:1.5px solid var(--ink)}
+.figs figure{margin:0 0 56px} .figs figcaption{margin-top:10px;color:var(--ink2);font-size:.92rem}
+.figs figure:nth-child(n+2){display:inline-block;width:calc(50% - 16px);vertical-align:top} .figs figure:nth-child(3){margin-left:28px}
+.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:48px 1fr;padding:18px 0;border-top:1px solid var(--rule)}
+.steps li:before{content:counter(s);font-weight:700;font-size:1.3rem;color:var(--red)}
+.steps b{display:block} .steps span{color:var(--ink2)}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:44px;font-size:.95rem;color:var(--ink2)}
+.meta h3{color:var(--ink);font-size:1.05rem;margin:0 0 8px} .meta ul{margin:0;padding-left:18px} .meta p{margin:0}
+.more a{display:block;padding:16px 0;border-top:1px solid var(--rule);font-weight:600;font-size:1.1rem;text-decoration:none}
+.more a:hover{text-decoration:underline;text-decoration-color:var(--hl);text-decoration-thickness:6px;text-underline-offset:-2px}
+footer{margin:96px 0 0;padding:24px 0 40px;border-top:1.5px solid var(--ink);display:flex;justify-content:space-between;font-size:.9rem;color:var(--ink2)}
+@media(max-width:880px){.w{padding:0 20px} h1{margin-top:24px} .spec{grid-template-columns:1fr} .claim{border-right:0;border-bottom:1.5px solid var(--ink);padding:26px 22px}
+ .better{grid-column:auto;padding:14px 22px} .notes{padding:22px} .facts{grid-template-columns:1fr 1fr} .find,.meta,.app{grid-template-columns:1fr}
+ .app .ph{display:none} .figs figure:nth-child(n+2){display:block;width:auto;margin-left:0} .top nav a.h{display:none} section{margin-top:64px}}
 </style></head>
-<body>
-<nav><div class="wrap"><a class="brand" href="#">🔎 Greenwashing Detector</a>
-<div class="links"><a href="#results">Results</a><a class="hide-m" href="#charts">Charts</a><a href="#method">Method</a>
-<a href="https://greenwashing-detector-esg-reports.streamlit.app/" target="_blank" rel="noopener">App ↗</a><a class="hide-m" href="https://github.com/Engr-Daniel/greenwashing-detector-esg-reports" target="_blank" rel="noopener">Code</a></div></div></nav>
-<header class="hero"><div class="wrap">
-<div class="eyebrow">NLP · ESG disclosure analytics · Green claims</div><h1>Are a company&#x27;s climate claims specific enough to verify?</h1><p class="lead">Upload a sustainability report. The app finds every environmental claim with an NLP model, scores each 0–100 for specificity and verifiability against EU and UK green-claims rules, and checks climate targets for completeness.</p>
-<div class="ctas"><a class="btn primary" href="https://greenwashing-detector-esg-reports.streamlit.app/" target="_blank" rel="noopener">Open the live app ↗</a><a class="btn" href="https://github.com/Engr-Daniel/greenwashing-detector-esg-reports" target="_blank" rel="noopener">View the code</a></div>
-<div class="shots"><img class="shot" src="assets/dashboard.png" alt="Dashboard screenshot"><img class="phone" src="assets/dashboard_mobile.png" alt="Mobile view"></div></div></header>
-<main class="wrap">
-<div class="note">⚖️ Disclosure quality, not a verdict. Scores measure how specific and verifiable the language is. They are not a finding that any company is greenwashing.</div>
-<section id="results"><h2>Key results</h2><p class="sub">The headline numbers.</p><div class="kpis"><div class="kpi"><div class="l">Claim detector</div><div class="v">0.864<span> macro-F1</span></div><div class="s">beats ClimateBERT (0.819), on par with RoBERTa-large</div></div><div class="kpi"><div class="l">Language-risk model</div><div class="v">0.78<span> AUC</span></div><div class="s">5-fold CV on 671 labelled claims</div></div><div class="kpi"><div class="l">Top red flag</div><div class="v">7.6×<span></span></div><div class="s">exaggerated impact, more common in greenwashing</div></div><div class="kpi"><div class="l">Nigerian reports</div><div class="v">82–89%<span></span></div><div class="s">of claims give no verifiable evidence</div></div><div class="kpi"><div class="l">Targets with baseline</div><div class="v">1 of 11<span></span></div><div class="s">across three reports</div></div></div></section>
-<section><h2>What the analysis shows</h2><p class="sub">Findings, and what they mean for decision-makers.</p><ol class="finds"><li><div class="n">1</div><div><h3>A lightweight model can match transformers</h3><p>TF-IDF + logistic regression reaches macro-F1 0.864 on the expert-labelled test set, on par with RoBERTa-large and fast enough to host for free.</p></div></li><li><div class="n">2</div><div><h3>Red flags track greenwashing</h3><p>Exaggerated impact appears 7.6× more often in labelled greenwashing claims, superlatives 3.0× and vague green terms 2.6×.</p></div></li><li><div class="n">3</div><div><h3>Most claims in Nigerian reports can&#x27;t be checked</h3><p>Across Access Holdings 2025, Dangote Cement 2024 and Seplat Energy 2023, 82–89% of environmental claims carry no number, baseline, scope or verification.</p></div></li><li><div class="n">4</div><div><h3>Targets lack baselines</h3><p>Of 11 measurable targets found, only one states a baseline year, which IFRS S2 requires.</p></div></li></ol></section>
-<section id="charts"><h2>Charts</h2><p class="sub">Click any chart to open it full size.</p><div class="figs"><figure><a href="assets/03_nigerian_case_studies.png" target="_blank"><img src="assets/03_nigerian_case_studies.png" alt="Nigerian reports: what share of claims carry evidence"></a><figcaption>Nigerian reports: what share of claims carry evidence</figcaption></figure><figure><a href="assets/01_claim_detector_benchmark.png" target="_blank"><img src="assets/01_claim_detector_benchmark.png" alt="Claim detection: this model vs published transformers"></a><figcaption>Claim detection: this model vs published transformers</figcaption></figure><figure><a href="assets/02_signal_lift.png" target="_blank"><img src="assets/02_signal_lift.png" alt="Which signals separate greenwashing from honest claims"></a><figcaption>Which signals separate greenwashing from honest claims</figcaption></figure></div></section>
-<section id="method"><h2>How it works</h2><p class="sub">Full methodology, tests and code are on <a href="https://github.com/Engr-Daniel/greenwashing-detector-esg-reports" target="_blank" rel="noopener">GitHub</a>.</p>
-<ol class="steps"><li><b>Read the PDF</b><span>pypdf extraction, cleaning and sentence splitting, with tables and infographics filtered out</span></li><li><b>Detect claims</b><span>Word + character TF-IDF, logistic regression, trained on 2,647 expert-labelled sentences</span></li><li><b>Score specificity</b><span>13 transparent signals, each tied to EU 2024/825, the CMA Green Claims Code, the GHG Protocol or IFRS S2</span></li><li><b>Language risk</b><span>A model trained on 671 claims labelled greenwashing or not (EmeraldMind 2026)</span></li><li><b>Targets and audit</b><span>Target year, baseline, % and scope extraction, a report grade and a printable audit note</span></li></ol>
-<div class="two" style="margin-top:18px"><div class="panel"><h3>Tech stack</h3><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">pypdf</span><span class="chip">pandas</span><span class="chip">Plotly</span><span class="chip">Streamlit</span><span class="chip">Anthropic API (optional)</span><span class="chip">pytest</span><span class="chip">GitHub Actions</span></div>
-<div class="panel"><h3>Data &amp; references</h3><ul><li>Stammbach et al. (2023) Environmental Claim Detection, ACL</li><li>EmeraldMind (2026), Apache 2.0</li><li>EU Directive 2024/825 (Empowering Consumers)</li><li>UK CMA Green Claims Code</li><li>GHG Protocol · ISSB IFRS S2</li><li>Access Holdings, Dangote Cement and Seplat Energy sustainability reports</li></ul></div></div>
-<p class="lim"><b>Limitations:</b> Measures language, not truth · the language-risk model is trained on short, partly synthetic claims · PDF extraction misses tables and scanned pages · English only.</p></section>
-<section><h2>More projects</h2><p class="sub">Part of a data, strategy and sustainability portfolio.</p><div class="others"><a class="other" href="https://engr-daniel.github.io/carbon-footprint-esg-dashboard/"><span class="oi">🌍</span><span><b>Carbon Footprint &amp; ESG</b><em>How big is a Nigerian manufacturer&#x27;s carbon footprint, and what will it cost to cut it?</em></span></a><a class="other" href="https://engr-daniel.github.io/solar-minigrid-site-suitability-nigeria/"><span class="oi">☀️</span><span><b>Solar Mini-Grid Siting</b><em>Where should Nigeria build its next solar mini-grids?</em></span></a><a class="other" href="https://engr-daniel.github.io/health-financing-nigeria/"><span class="oi">🩺</span><span><b>Health Financing</b><em>Who pays for healthcare in Nigeria?</em></span></a></div></section>
-</main>
-<footer><div class="wrap">Built by <b>Daniel Oyewale</b>, Data Analyst · Data Strategist · Sustainability Researcher at
-<a href="https://petgrave.io" target="_blank" rel="noopener">Petgrave.io</a> · <a href="https://github.com/Engr-Daniel" target="_blank" rel="noopener">GitHub</a> ·
-<a href="https://github.com/Engr-Daniel/greenwashing-detector-esg-reports" target="_blank" rel="noopener">Source code</a> (MIT)</div></footer>
-</body></html>
+<body><div class="w"><div class="top"><b>Daniel Oyewale</b><nav><a class="h" href="#findings">Findings</a><a class="h" href="#method">Method</a>
+<a href="https://github.com/Engr-Daniel/greenwashing-detector-esg-reports" target="_blank" rel="noopener">Code</a></nav></div>
+<h1>Are a company&#x27;s climate claims specific enough to verify?</h1><p class="lead">Upload a sustainability report. The app finds every environmental claim with an NLP model, scores each 0–100 for specificity and verifiability against EU and UK green-claims rules, and checks climate targets for completeness.</p><div class="acts"><a class="p" href="https://greenwashing-detector-esg-reports.streamlit.app/" target="_blank" rel="noopener">Open the app</a><a class="" href="https://github.com/Engr-Daniel/greenwashing-detector-esg-reports" target="_blank" rel="noopener">Source code</a></div>
+<div class="spec"><div class="claim"><small>An example claim, written for illustration, as the detector reads it</small>
+<q>“We are <mark>committed to a greener future<sup>1</sup></mark> and have <mark>significantly reduced<sup>2</sup></mark> our
+<mark>environmental footprint<sup>3</sup></mark>, making us <mark>a leader in sustainability<sup>4</sup></mark>.”</q></div>
+<div class="notes"><div class="score">18<small> / 100 specificity</small></div><ol>
+<li><b>Vague aspiration.</b> No target, date or action.</li><li><b>No number.</b> Reduced by how much, from what baseline?</li>
+<li><b>Undefined scope.</b> Which emissions, which sites?</li><li><b>Unverifiable superlative.</b> Compared with whom?</li></ol></div>
+<div class="better"><b>Written to be checkable (also illustrative):</b> “Scope 1 and 2 emissions fell 18% between 2021 and 2024, to 412,000 tCO₂e, with limited assurance from an external auditor.”</div></div>
+<section><h2>Results</h2><div class="facts"><div><b>0.864<small> macro-F1</small></b><strong>Claim detector</strong><span>beats ClimateBERT (0.819), on par with RoBERTa-large</span></div><div><b>0.78<small> AUC</small></b><strong>Language-risk model</strong><span>5-fold CV on 671 labelled claims</span></div><div><b>7.6×<small></small></b><strong>Top red flag</strong><span>exaggerated impact, more common in greenwashing</span></div><div><b>82–89%<small></small></b><strong>Nigerian reports</strong><span>of claims give no verifiable evidence</span></div><div><b>1 of 11<small></small></b><strong>Targets with baseline</strong><span>across three reports</span></div></div></section>
+<section id="findings"><h2>What the analysis found</h2><div class="find"><div><h3><span>A lightweight model can match transformers</span></h3><p>TF-IDF + logistic regression reaches macro-F1 0.864 on the expert-labelled test set, on par with RoBERTa-large and fast enough to host for free.</p></div><div><h3><span>Red flags track greenwashing</span></h3><p>Exaggerated impact appears 7.6× more often in labelled greenwashing claims, superlatives 3.0× and vague green terms 2.6×.</p></div><div><h3><span>Most claims in Nigerian reports can&#x27;t be checked</span></h3><p>Across Access Holdings 2025, Dangote Cement 2024 and Seplat Energy 2023, 82–89% of environmental claims carry no number, baseline, scope or verification.</p></div><div><h3><span>Targets lack baselines</span></h3><p>Of 11 measurable targets found, only one states a baseline year, which IFRS S2 requires.</p></div></div></section>
+<section><h2>The detector</h2><div class="app"><img src="assets/dashboard.png" alt="Detector app" loading="lazy"><div class="ph"><img src="assets/dashboard_mobile.png" alt="Mobile view" loading="lazy"></div></div></section>
+<section><h2>Charts</h2><div class="figs"><figure><a href="assets/03_nigerian_case_studies.png" target="_blank"><img src="assets/03_nigerian_case_studies.png" alt="Nigerian reports: what share of claims carry evidence" loading="lazy"></a><figcaption>Nigerian reports: what share of claims carry evidence</figcaption></figure><figure><a href="assets/01_claim_detector_benchmark.png" target="_blank"><img src="assets/01_claim_detector_benchmark.png" alt="Claim detection: this model vs published transformers" loading="lazy"></a><figcaption>Claim detection: this model vs published transformers</figcaption></figure><figure><a href="assets/02_signal_lift.png" target="_blank"><img src="assets/02_signal_lift.png" alt="Which signals separate greenwashing from honest claims" loading="lazy"></a><figcaption>Which signals separate greenwashing from honest claims</figcaption></figure></div></section>
+<section id="method"><h2>How it works</h2><ol class="steps"><li><div><b>Read the PDF</b><span>pypdf extraction, cleaning and sentence splitting, with tables and infographics filtered out</span></div></li><li><div><b>Detect claims</b><span>Word + character TF-IDF, logistic regression, trained on 2,647 expert-labelled sentences</span></div></li><li><div><b>Score specificity</b><span>13 transparent signals, each tied to EU 2024/825, the CMA Green Claims Code, the GHG Protocol or IFRS S2</span></div></li><li><div><b>Language risk</b><span>A model trained on 671 claims labelled greenwashing or not (EmeraldMind 2026)</span></div></li><li><div><b>Targets and audit</b><span>Target year, baseline, % and scope extraction, a report grade and a printable audit note</span></div></li></ol>
+<div class="meta"><div><h3>Sources</h3><ul><li>Stammbach et al. (2023) Environmental Claim Detection, ACL</li><li>EmeraldMind (2026), Apache 2.0</li><li>EU Directive 2024/825 (Empowering Consumers)</li><li>UK CMA Green Claims Code</li><li>GHG Protocol, ISSB IFRS S2</li><li>Access Holdings, Dangote Cement and Seplat Energy sustainability reports</li></ul></div><div><h3>What the scores mean</h3><p>Disclosure quality, not a verdict. Scores measure how specific and verifiable the language is. They are not a finding that any company is greenwashing.</p>
+<h3 style="margin-top:20px">Limitations</h3><p>Measures language, not truth, the language-risk model is trained on short, partly synthetic claims, PDF extraction misses tables and scanned pages, English only.</p></div></div></section>
+<section><h2>Other projects</h2><div class="more"><a href="https://engr-daniel.github.io/carbon-footprint-esg-dashboard/">How big is a Nigerian manufacturer&#x27;s carbon footprint, and what will it cost to cut it?</a><a href="https://engr-daniel.github.io/solar-minigrid-site-suitability-nigeria/">Where should Nigeria build its next solar mini-grids?</a><a href="https://engr-daniel.github.io/health-financing-nigeria/">Who pays for healthcare in Nigeria?</a></div></section>
+<footer><span>© 2026 Daniel Oyewale</span><a href="https://github.com/Engr-Daniel" target="_blank" rel="noopener">GitHub</a></footer></div></body></html>

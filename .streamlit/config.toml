@@ -1,15 +1,43 @@
 [theme]
 base = "light"
-primaryColor = "#0f5132"
-backgroundColor = "#fcfcfb"
-secondaryBackgroundColor = "#f3f2ef"
-textColor = "#0b0b0b"
+primaryColor = "#202326"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f4f2"
+textColor = "#202326"
+borderColor = "#202326"
+showWidgetBorder = true
+baseRadius = "none"
+font = "Work Sans, sans-serif"
+headingFont = "Work Sans, sans-serif"
+
+[[theme.fontFaces]]
+family = "Work Sans"
+url = "app/static/work-sans-latin-wght-normal.woff2"
+weight = "100 900"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Spectral"
+url = "app/static/spectral-latin-400-normal.woff2"
+weight = "400"
+style = "normal"
+
+[[theme.fontFaces]]
+family = "Spectral"
+url = "app/static/spectral-latin-400-italic.woff2"
+weight = "400"
+style = "italic"
+
+[theme.sidebar]
+backgroundColor = "#fff8cc"
+borderColor = "#202326"
+
+[server]
+enableStaticServing = true
+maxUploadSize = 100
 
 [client]
 toolbarMode = "minimal"
 
 [browser]
 gatherUsageStats = false
-
-[server]
-maxUploadSize = 100
